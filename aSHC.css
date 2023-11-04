@@ -1,0 +1,198 @@
+
+@font-face {
+    font-family: karthika;
+    src: url("malfont.ttf") format("woff2");
+   
+  }
+body {
+    display: block;
+    margin: auto;
+}
+
+.noPrint {
+  
+  position: sticky;
+  transition: top 0.9s;
+  top: 10px;
+    width:204mm;
+    background-color:rgb(80, 156, 255);
+    padding :10px;
+    border-radius: 10px;
+    margin:auto;
+    display:flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    z-index: 10000;
+    }
+    .oneByThree{
+width:35mm;
+
+    }
+
+.a4,.a4Bak {font-family: karthika, sans-serif; 
+    width: 209mm;
+    height:295mm;
+    
+    background-size: 100% 100%;
+    position:relative;
+   
+    page-break-before: always;
+    margin:auto;
+    z-index: 2;
+   }
+
+   .a4{
+    background-image: url(frnd.jpg);
+    }
+
+    .pageNo{
+position: absolute;
+
+z-index:1;
+
+
+
+    }
+    .pageNo p{
+margin-top:6.5cm;
+      font-size: 200px;
+      font-weight: normal;
+      padding-left: 7.5cm;
+opacity: .3;
+    }
+   .a4Bak{
+  
+    background-image: url(bak.jpg);
+     }
+
+.result{
+    position:absolute;
+    margin-top: 8.5cm;
+    margin-left:2.1cm;
+  height:19cm;
+}
+.farmerDetailsL{
+    display: inline-block;
+    width:50%;
+height:2.6cm
+  
+    }
+    .farmerDetailsR{
+
+
+        display: inline-block;
+        width:45%;
+        height:2.6cm
+       
+    }
+
+.result{
+
+    width: 16cm;
+
+
+}
+
+
+.farmerDetailsL p,.farmerDetailsR p{
+
+margin-top:2px;
+margin-bottom: 1px;
+margin-left:25px;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+   text-align: center;
+  }
+  table{
+margin-left: 25px;
+
+  }
+  td{
+    height: 1cm;
+    white-space: pre-line;
+  }
+
+  .slNo{
+
+width:10px;
+
+  }
+  .unit{
+
+
+    width:2cm;
+  }
+  .blank{
+    width: 3cm;
+  }
+  .nilavaram{
+    width:2.4cm;
+  }
+  .manadan{
+    width:4.5cm;
+  }
+  p span {
+    /* Font family for the span */
+    font-family: "Times New Roman", serif;
+    
+    /* Font size and color for the span */
+    font-size: 12px;
+  }
+  @media print {
+    .noPrint{display:none}
+    .pageNo{display:none}
+  
+}
+
+  @page {
+   margin: 3mm;
+    
+}
+button,  input {
+  transition-duration: 0.4s;
+  background-color: rgb(255, 253, 253);
+  border: none;
+  border-radius: 5px;
+  padding: 14px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color:rgb(252, 187, 109);
+  color: rgb(58, 39, 4);
+  cursor: pointer;
+}
+.mousePointer:hover {
+cursor:default;
+
+
+}
+.a4:hover{
+
+  cursor: default;
+}
+.a4Bak p{
+  margin:0px;
+  padding-left: 1.9cm;
+  padding-right: 1.2cm;
+  padding-bottom: 7px;
+}
+.pHeading{
+  
+  padding-top:2cm;
+  padding-left: 1.7cm;
+  
+  text-decoration: underline;
+  font-weight: bold;
+  font-size:16px;
+}
+.vila{
+
+  font-weight: bold;
+  font-size:16px;
+
+}
