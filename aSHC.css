@@ -9,11 +9,9 @@ body {
     margin: auto;
 }
 
-.noPrint {
+.titleDiv {
   
-  position: sticky;
-  transition: top 0.9s;
-  top: 10px;
+
     width:204mm;
     background-color:rgb(80, 156, 255);
     padding :10px;
@@ -21,13 +19,46 @@ body {
     margin:auto;
     display:flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: baseline;
     z-index: 10000;
     }
     .oneByThree{
 width:35mm;
 
     }
+
+    input[type="number" i] {
+     width: 50px;
+     height:5px;
+     padding: 8px;
+  }
+  .toolsDiv{
+    width:204mm;
+    background-color:rgb(80, 156, 255);
+    padding: 10px;
+    margin:auto;
+    display:flex;
+    justify-content: space-around;
+  }
+  .printBDiv{
+    position: fixed;
+    top:91% ;
+    
+    margin-left: 69%;
+    z-index: 3;
+  }
+#displayDiv{
+
+  background-color:rgb(80, 156, 255);
+  width:50mm;
+  margin:auto;
+  border-radius: 10px;
+  padding-left:10px;
+  display:flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
 
 .a4,.a4Bak {font-family: karthika, sans-serif; 
     width: 209mm;
@@ -145,6 +176,7 @@ width:10px;
   @media print {
     .noPrint{display:none}
     .pageNo{display:none}
+    
   
 }
 
@@ -161,10 +193,17 @@ button,  input {
   font-size: 14px;
 }
 
-button:hover {
+button:hover,img:hover {
+ 
+ 
   background-color:rgb(252, 187, 109);
   color: rgb(58, 39, 4);
   cursor: pointer;
+}
+
+img:hover{
+  transform: scale(1.5);
+  transition-duration: 0.3s;
 }
 .mousePointer:hover {
 cursor:default;
