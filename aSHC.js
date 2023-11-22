@@ -23,17 +23,31 @@ const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea
                     const printButten = document.getElementById("printB");
                     const refreshButten= document.getElementById("refreshB");
                     const totalCards= document.getElementById("totalCards");
-                    printButten.disabled = true;
+                    const enterButton=document.getElementById("createB");
+                    var divContainer = document.getElementById("papper");
+                    const fileInput = document.getElementById("excel-file");
+                    const displayDiv=document.getElementById("displayDiv");
+                    const numberIn=document.getElementById("numberIn");
+                    const startNumber= document.getElementById("startNumber");
+                    const endNumber= document.getElementById("endNumber");
+                   printButten.disabled = true;
+                   printButten.style.opacity = 0;
+                    
                     refreshButten.disabled = true;
-                    printButten.style.opacity = 0;
                     refreshButten.style.opacity = 0;
-function readExcelfile(){
+                    
+                    enterButton.disabled=true;
+                    enterButton.style.opacity=0;
+                  
+                        
+                    
+function checkFile(whoCalled){
 
   gRefresh();
-
-   
-    const fileInput = document.getElementById("excel-file");
-    const file = fileInput.files[0];
+  
+  
+  const file = fileInput.files[0]; 
+    
     
     if (file) {
         const reader = new FileReader();
@@ -44,18 +58,20 @@ function readExcelfile(){
             const worksheet = workbook.Sheets[sheetName];
             const range = XLSX.utils.decode_range(worksheet["!ref"]);
             const  totalColm= range.e.c ;
-            const  totalRo=range.e.r;
+           var  totalRo=range.e.r;
+            
             totalCards.innerHTML=totalRo;
-  
-               
-                var divContainer = document.getElementById("papper");
-               
-var newObject={};
-          
-            for (let i = 1; i <=totalRo;  i++) {// loop  according to Excel Row ----
-
-                     
-
+        
+        
+        
+            if (whoCalled=="generateButton") {
+                var gvr= parseInt(startNumber.value);
+                var gvrE=parseInt(endNumber.value);
+                    if(gvr>=1&&gvrE<=totalRo&&gvrE>=gvr&& gvr<=totalRo)
+                     {var totalRo = gvrE}//
+                    else {var gvr =1}
+            for (let i=gvr; i <=totalRo;  i++) {// loop  according to Excel Row ----
+                   
                 const divA4 = createDiv("a4");
                 const dPageNo= createDiv("pageNo");
                 const dA4Bak = createDiv("a4Bak");
@@ -65,7 +81,7 @@ var newObject={};
                         
                         var table = document.createElement("table");
                         var trH = document.createElement("tr");
-
+        
                         const tableHeadData = [
                             { className: "slNo", textContent: "{Ia  \\\w" },
                             { className: "blank", textContent: "" },
@@ -73,24 +89,20 @@ var newObject={};
                             { className: "falam", textContent: "]cntim[\ ^ew" },
                             { className: "nilavaram", textContent: "\\nehmcw" },
                             { className: "manadan", textContent: "am\\ZWvUw" }];
-
+        
                         // Create and append table header cells using the function and data
-tableHeadData.forEach(data => {
-    const th = createTableHeaderCell(data.className, data.textContent);
-    trH.appendChild(th);});
-
+        tableHeadData.forEach(data => {
+                                const th = createTableHeaderCell(data.className, data.textContent);
+                                trH.appendChild(th);});
         table.appendChild(trH);
-
- 
-            
-
+        
+        
                 const exData={};
                 let colNo=0;
                 exHead.forEach((element) => {
                 const cell = worksheet[XLSX.utils.encode_cell({ r: i, c: colNo })];
                 var cellValue = cell ? cell.v : 0; // Use .v to get the raw value
-                 if (colNo >= 9 && colNo <= 21) {
-                cellValue = cellValue.toFixed(2);}
+                 if (colNo >= 9 && colNo <= 21) {cellValue = cellValue.toFixed(2);}// fixing for two decimal
                 exData[element] = cellValue;
                 colNo++ }); //xxxxxxxxxxxx loop for array elements End here
               
@@ -137,7 +149,7 @@ tableHeadData.forEach(data => {
                             else if (exData.OC<= 1.83) uooriya = 140;
                             else if (exData.OC<= 2.16) uooriya = 125;
                             else if (exData.OC<= 2.50) uooriya = 105;
-
+        
                                  if(exData.P <=3)      rajfos=290;
                             else if( exData.P <=6.5)   rajfos= 260;
                             else if( exData.P <=10)    rajfos= 240;
@@ -149,7 +161,7 @@ tableHeadData.forEach(data => {
                             else if( exData.P <=30)    rajfos= 80;
                             else if( exData.P <=34.5)  rajfos= 55;
                             else rajfos=50;
-
+        
                                 if(exData.K<=35)     mop=90;
                             else if(exData.K<=75)    mop=85;
                             else if(exData.K<=115)   mop=75;
@@ -161,8 +173,8 @@ tableHeadData.forEach(data => {
                             else if(exData.K<=355)   mop=25;
                             else if(exData.K<=395)   mop=20;
                            
-
-
+        
+        
                             createAndAppendPElement("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//വിള
                             createAndAppendPElement("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
                             dA4Bak,"test","true");
@@ -175,33 +187,34 @@ tableHeadData.forEach(data => {
                             createAndAppendPElement("HmtcmsX§n\\pw 15 apXÂ 25 Intem{Kmwhsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯p sImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw 680 {KmwhoXwbqdnb, 215 {KmwhoXwcmPvt^mkv, 1150 {KmwhoXw s]m«mjv F¶nh tNÀt¡­XmWv.hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.  sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp slIvSdn\\v 2 In. {Kmw F¶ F¶ tXmXnÂ a®nÂtNÀ¡pI. aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp slIvSdn\\v 80 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp slÎdn\\v 10 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",
                             dA4Bak,"test","true");
                             break;
-
+        
                            
                             case"a":
                             createAndAppendPElement("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//വിള
                             createAndAppendPElement("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw 200 {Kmw hoXw bqdnb, 120 {Kmw hoXw cmPvt^mkv, 285 {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
                             dA4Bak,"test","true");
                             break;
-
+        
                             case"n":
                             createAndAppendPElement("hnf: PmXn ",dA4Bak,"vila mousePointer","false");//വിള
                             createAndAppendPElement("Hmtcm PmXn ac¯n\\pw hÀj¯nÂ Hcn¡Â 50 Intem{Kmw hoXw ]¨nehfw/ Imenhfw/It¼mÌv F¶nh tNÀ¯psImSp¡p¶Xv DNnXamWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm ac¯n\\pw 1070 {Kmw hoXw bqdnb, 310 {Kmw hoXw cmPvt^mkv, 1870 {Kmw hoXw s]m«mjv F¶nh hÀj¯nÂ Hcn¡Â tNÀ¡pI  ",
                             dA4Bak,"test","true");
-
                             break;
-
-
-
-
-
-
-                }});
+                         
+        
+                          
+        
+        
+                }
+            
+               
+            
+            
+            
+            });// array vila each elment End
                 
-               
-               
-
-
-  
+         
+        
         var slNo=0;
         var unit="";
         var falam="";
@@ -225,19 +238,18 @@ tableHeadData.forEach(data => {
                     unit="sUkn-ko-a³kv/ aoäÀ";
                     falam=exData.Ec;
                     manam="eh-Wmwiw Ipdhv : < 2, eh-Wmwiw a[yaw: 2 – 16, eh-WmwiwIqSpXÂ: > 16"
-                    if(falam>=16){nilavaram="eh-WmwiwIqSpXÂ"};
+                    if(falam>=16){nilavaram="eh-Wmwiw IqSpXÂ"};
                      if(falam<=15.9){nilavaram="eh-Wmwiw a[yaw"};
                      if (falam<=2) {nilavaram="eh-Wmwiw Ipdhv"};
-                    
                     break;
                   
                 case 3:
                     unit="%";
                     falam=exData.OC;
                     manam= "Ipdhv: <0.5, a[yaw : 0.5 – 1.5, IqSpXÂ : >1.5"
+                    if(falam>.5){nilavaram="a[yaw"};
                     if(falam>=1.5){nilavaram="IqSpXÂ"};
-                     if(falam<=1.4){nilavaram="a[yaw"};
-                     if (falam<=.5) {nilavaram="Ipdhv"};
+                    if (falam<=.5) {nilavaram="Ipdhv"};
                     break;
                 case 4:
                     unit="Intem{Kmw/ slIvSÀ";
@@ -246,9 +258,9 @@ tableHeadData.forEach(data => {
                     if(falam>=24.1){nilavaram="IqSpXÂ"};
                     if(falam<=24){nilavaram="a[yaw"};
                     if (falam<=10) {nilavaram="Ipdhv"};
-
+        
                     break;
-
+        
                 case 5:
                     unit="Intem{Kmw/ slIvSÀ";
                     falam=exData.K;
@@ -287,7 +299,7 @@ tableHeadData.forEach(data => {
                     if(falam>=5){nilavaram="]cym]vXw"};
                     if(falam<5){nilavaram="A]cym]vXw"};
                     break;
-
+        
                 case 10:
                     unit="]n.-]n.Fw ";
                     falam=exData.Mn;
@@ -295,7 +307,7 @@ tableHeadData.forEach(data => {
                     if(falam>=1){nilavaram="]cym]vXw"};
                     if(falam<1){nilavaram="A]cym]vXw"};
                     break;
-
+        
                 case 11:
                     unit="]n.-]n.Fw ";
                     falam=exData.Zn;
@@ -303,7 +315,7 @@ tableHeadData.forEach(data => {
                     if(falam>=1){nilavaram="]cym]vXw"};
                     if(falam<1){nilavaram="A]cym]vXw"};
                     break;
-
+        
                 case 12:
                     unit="]n.-]n.Fw ";
                     falam=exData.Cu;
@@ -311,7 +323,7 @@ tableHeadData.forEach(data => {
                     if(falam>=1){nilavaram="]cym]vXw"};
                     if(falam<1){nilavaram="A]cym]vXw"};
                     break;
-
+        
                 case 13:
                     unit="]n.-]n.Fw ";
                     falam=exData.B;
@@ -321,17 +333,17 @@ tableHeadData.forEach(data => {
                     break;
                   
                 default:
-                    var passText="prob";}//swithch End
-
-
+                   }//swithch End
+        
+        
             
             
             createTableRow(table,element,slNo,unit,falam,manam,nilavaram);      })// soil contents loop end
-
-
+        
+        
                 
                         divContainer.appendChild(divA4);
-
+        
                         divA4.appendChild(dPageNo);
                        createAndAppendPElement(i,dPageNo,"pagenumber","false");
                         divA4.appendChild(divResult);
@@ -339,39 +351,37 @@ tableHeadData.forEach(data => {
                        divResult.appendChild(divFarmerR);
                        divResult.appendChild(table);
                        divContainer.appendChild(dA4Bak);
-            }  // loop for TotalRow---- End
-             };// On load function end here
-
-        reader.readAsArrayBuffer(file);
-
-        printButten.style.opacity = 1;
-        refreshButten.style.opacity = 1;
-        printButten.disabled = false;
-        refreshButten.disabled = false;
+            } // End  loop  according to Excel Row ---- End
         
-    }}//If file is exist Read Excel File End
+        
+            printButten.disabled = false;
+            refreshButten.disabled = false;
+            printButten.style.opacity = 1;  
+            
+          
+               
+        
+        }// if local storage file is end
+       
+        
+        } // On load function end here
+            reader.readAsArrayBuffer(file);
+        
+
+                    enterButton.disabled=false;
+                    enterButton.style.opacity=1;
+
+                    refreshButten.disabled = false;
+                    refreshButten.style.opacity = 1;
+                   
+                    
+                    
+        
+    }}//if file is exist end, check file End
+    
+    
+ 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Functions xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-//zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function createTableHeaderCell(className, textContent) {
@@ -403,20 +413,15 @@ function createAndAppendPElement(text, div, cName,editSatus) {
 }
 
 
-
-
 function gRefresh(){
     const elementsToRemove = document.querySelectorAll('.a4, .a4Bak');
     elementsToRemove.forEach(function(element) {
         element.parentNode.removeChild(element); });
-       
-        
         printButten.disabled = true;
         refreshButten.disabled = true;
-       
-   
-    
+
 }
+
 function createDiv(className) {
     const div = document.createElement("div");
     div.className = className;
