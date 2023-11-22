@@ -5,38 +5,52 @@
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Print</title>
+    <title>Card Generater</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+    <link rel="icon" href="https://cdn.oaistatic.com/_next/static/media/favicon-32x32.be48395e.png" type="image/gif" sizes="16x16">
    
 
 
 </head>
 <body>
 
-<div id="inputSection" class="noPrint"> 
+<div id="inputSection" class="noPrint titleDiv"> 
 
-<div class="oneByTwo">  <input type="file" id="excel-file" accept=".xlsx, .xls" /> </div>
-<div >  <button id="createB" onclick=readExcelfile()><i class="fa fa-sign-in" aria-hidden="true"></i> Enter</button></div>
-<div >  <button id="printB" onClick="window.print()" >Print <i class="fa fa-print" aria-hidden="true"></i></button></div>
-<div > <button id="refreshB" onClick = window.location.reload(); style="font-size:16px"><i class="fa fa-refresh"></i></button></div>
- <div> <p style = "  font-size:16px;color: white;margin-bottom: 0px ">Total Cards:</p>
-    <p id="totalCards" style = "  font-size:16px;color: white;margin-top: 0px;margin-left: 25px; ">0</p></div>  
-    
-   
-  
- 
+<div class="oneByTwo">  <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()" /> </div>
+<div >  <button id="createB" onclick="checkFile('generateButton')"><i class="fa fa-sign-in" aria-hidden="true"></i> Generate Cards</button></div>
+
 
 
 </div>
+<div class="noPrint toolsDiv" id="numberIn">
+   <div>
+    <p style = "  font-size:16px;color: white;margin-bottom: 0px ">Card No :
+         <input type="number" id="startNumber">   To Card No : <input type="number" id="endNumber"></p>
+        </div>
 
-    
+        <div>
+            <p style = "font-size:16px;color: white;margin-bottom: 0px ">Total Cards: <span id="totalCards" style = "font-size:21px;margin-bottom: 0px">-</span></p>
+                
+
+            
+           
+        </div>
+      
+
+</div>
+
+
 
 
 <div id="papper">
 
 
+</div>
+<div class="noPrint printBDiv"> 
+    <img   id="refreshB" src="switch.png" alt="Reload" style="width:42px;height:42px" title="Refresh" onClick = window.location.reload();>
+    <img id="printB" src="print.png" alt="Rrint" style="width: 42px" title="Print"  onClick="window.print()">
+   
 </div>
 </body>
 
