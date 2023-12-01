@@ -26,7 +26,8 @@
 <div class="noPrint toolsDiv" id="numberIn">
    <div>
     <p style = "  font-size:16px;color: white;margin-bottom: 0px ">Card No :
-         <input type="number" id="startNumber">   To Card No : <input type="number" id="endNumber"></p>
+         <input type="number" id="startNumber"min="1" step="1" oninput="validity.valid||(value='')" >   
+        To Card No : <input type="number" id="endNumber"min="1" step="1" oninput="validity.valid||(value='')" ></p>
         </div>
 
         <div>
