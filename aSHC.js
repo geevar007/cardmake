@@ -361,8 +361,9 @@ function checkFile(whoCalled){
           
                
         
-        }// if local storage file is end
-       
+        }// if called by generater Button is end
+       else{  startNumber.value="";
+                endNumber.value="" }
         
         } // On load function end here
             reader.readAsArrayBuffer(file);
@@ -428,6 +429,8 @@ function createDiv(className) {
     return div;
   }
  
- 
+ function clearInputs(){
+    alert("cleared the inputs")
+ }
 
 
