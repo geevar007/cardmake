@@ -101,8 +101,9 @@ function checkFile(whoCalled){
                 let colNo=0;
                 exHead.forEach((element) => {
                 const cell = worksheet[XLSX.utils.encode_cell({ r: i, c: colNo })];
-                var cellValue = cell ? cell.v : 0; // Use .v to get the raw value
-                 if (colNo >= 9 && colNo <= 21) {cellValue = cellValue.toFixed(2);}// fixing for two decimal
+               var cellValue = cell ? cell.v : ""; // Use .v to get the raw value
+                 if (colNo >= 9 && colNo <= 21&& typeof cellValue === 'number') 
+                 {cellValue = cellValue.toFixed(2);}// fixing for two decimal
                 exData[element] = cellValue;
                 colNo++ }); //xxxxxxxxxxxx loop for array elements End here
               
