@@ -5,10 +5,10 @@
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Generater</title>
+    <title>Card Gen</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="https://cdn.oaistatic.com/_next/static/media/favicon-32x32.be48395e.png" type="image/gif" sizes="16x16">
+    <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
    
 
 
@@ -18,7 +18,7 @@
 <div id="inputSection" class="noPrint titleDiv"> 
 
 <div class="oneByTwo">  <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()" /> </div>
-<div >  <button id="createB" onclick="checkFile('generateButton')"><i class="fa fa-sign-in" aria-hidden="true"></i> Generate Cards</button></div>
+<div >  <button id="createB" onclick="checkFile('generateButton')"><i class="fa fa-cogs" aria-hidden="true"></i> Generate Cards</button></div>
 
 
 
@@ -26,18 +26,21 @@
 <div class="noPrint toolsDiv" id="numberIn">
    <div>
     <p style = "  font-size:16px;color: white;margin-bottom: 0px ">Card No :
-         <input type="number" id="startNumber"min="1" step="1" oninput="validity.valid||(value='')" >   
-        To Card No : <input type="number" id="endNumber"min="1" step="1" oninput="validity.valid||(value='')" ></p>
+         <input type="number" id="startNumber" min="1" step="1" oninput="validity.valid||(value='')">   
+         To Card No : <input type="number" id="endNumber" min="1" step="1" oninput="validity.valid||(value='')">
+        
+         </p>
+         
         </div>
 
         <div>
             <p style = "font-size:16px;color: white;margin-bottom: 0px ">Total Cards: <span id="totalCards" style = "font-size:21px;margin-bottom: 0px">-</span></p>
-                
-
-            
-           
         </div>
-      
+        <div> <a href="Template.xlsx" download>
+            <button id="dwldButton" title="Download Template"><i class="fa fa-download" aria-hidden="true"></i>  Template</button>
+        </a></div>
+       
+
 
 </div>
 
@@ -49,8 +52,8 @@
 
 </div>
 <div class="noPrint printBDiv"> 
-    <img   id="refreshB" src="https://geevar007.github.io/glog/switch.png" alt="Reload" style="width:42px;height:42px" title="Refresh" onClick = window.location.reload();>
-    <img id="printB" src="https://geevar007.github.io/glog/print.png" alt="Print" style="width: 42px" title="Print"  onClick="window.print()">
+    <img   id="refreshB" src="switch.png" alt="Reload" style="width:42px;height:42px" title="Refresh" onClick = window.location.reload();>
+    <img id="printB" src="print.png" alt="Print" style="width: 42px" title="Print"  onClick="window.print()">
    
 </div>
 </body>
