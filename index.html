@@ -25,7 +25,7 @@
 </div>
 <div class="noPrint toolsDiv" id="numberIn">
    <div>
-    <p style = "  font-size:16px;color: white;margin-bottom: 0px ">Card No :
+    <p  class="mousePointer" style = " font-size:16px;color: white">Card No :
          <input type="number" id="startNumber" min="1" step="1" oninput="validity.valid||(value='')">   
          To Card No : <input type="number" id="endNumber" min="1" step="1" oninput="validity.valid||(value='')">
         
@@ -34,7 +34,7 @@
         </div>
 
         <div>
-            <p style = "font-size:16px;color: white;margin-bottom: 0px ">Total Cards: <span id="totalCards" style = "font-size:21px;margin-bottom: 0px">-</span></p>
+            
         </div>
         <div> <a href="Template.xlsx" download>
             <button id="dwldButton" title="Download Template"><i class="fa fa-download" aria-hidden="true"></i>  Template</button>
@@ -51,10 +51,10 @@
 
 
 </div>
-<div class="noPrint printBDiv"> 
-    <img   id="refreshB" src="https://geevar007.github.io/glog/switch.png" alt="Reload" style="width:42px;height:42px" title="Refresh" onClick = window.location.reload();>
-    <img id="printB" src="https://geevar007.github.io/glog/print.png" alt="Print" style="width: 42px" title="Print"  onClick="window.print()">
-   
+<div class="noPrint printBDiv"id="printBDiv"> 
+    <img   id="refreshB" src="switch.png" alt="Reload" style="width:42px;height:42px" title="Refresh" onClick = window.location.reload();>
+    <img id="printB" src="print.png" alt="Print" style="width: 42px;height:42px" title="Print"  onClick="window.print()">
+    <p class="mousePointer"style = "font-size:16px;color: rgb(26, 23, 1);margin-top: 8px ">Total Cards: <span id="totalCards" style = "font-size:21px">-</span></p>
 </div>
 </body>
 
