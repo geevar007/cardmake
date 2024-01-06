@@ -16,9 +16,7 @@ const soilContents  =
 const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea","gps",
                 "ph","Ec","OC","P","K","Ca","Mg","Sa","Fe","Mn","Zn","Cu","B","c1","c2","c3"];
 
- var serverResponse = '<p contenteditable="true">This is an editable paragraph injected by the server. You can click on it and start typing to edit the text. You can also apply formatting, such as making text bold, italic, or changing the font size, just like in a text editor.</p>';
-
-                    
+                    const footDiv= document.getElementById("printBDiv");
                     const createButten = document.getElementById("createB");
                     const printButten = document.getElementById("printB");
                     const refreshButten= document.getElementById("refreshB");
@@ -35,7 +33,7 @@ const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea
                     
                     refreshButten.disabled = true;
                     refreshButten.style.opacity = 0;
-                    
+                    footDiv.style.opacity=0;
                     enterButton.disabled=true;
                     enterButton.style.opacity=0;
                   
@@ -109,12 +107,12 @@ function checkFile(whoCalled){
                 colNo++ }); //xxxxxxxxxxxx loop for array elements End here
               
                 
-                createAndAppendPElement("IÀjIsâ t]cv: " + exData.farmer, divFarmerL,"fL mousePointer","false");
-                createAndAppendPElement("hnemkw : " + exData.hName + ", " + exData.post, divFarmerL,"fL","false");
-                createAndAppendPElement("]©mb¯v : " + exData.pancha, divFarmerL,"fL mousePointer","false");
-                createAndAppendPElement("PnÃ: " + exData.jilla, divFarmerL,"fL mousePointer","false");
-                createAndAppendPElement("kÀsÆ  \\\¼À: " + exData.survey, divFarmerR,"fR mousePointer","false");
-                createAndAppendPElement("hnkvXrXn: " + exData.gArea + " slÎÀ", divFarmerR,"fR mousePointer","false");
+                addPara("IÀjIsâ t]cv: " + exData.farmer, divFarmerL,"fL mousePointer","false");
+                addPara("hnemkw : " + exData.hName + ", " + exData.post, divFarmerL,"fL","false");
+                addPara("]©mb¯v : " + exData.pancha, divFarmerL,"fL mousePointer","false");
+                addPara("PnÃ: " + exData.jilla, divFarmerL,"fL mousePointer","false");
+                addPara("kÀsÆ  \\\¼À: " + exData.survey, divFarmerR,"fR mousePointer","false");
+                addPara("hnkvXrXn: " + exData.gArea + " slÎÀ", divFarmerR,"fR mousePointer","false");
                 
                 var pR3 = document.createElement("p");
                 pR3.textContent = "A£mwitcJmwiw: "; // gps
@@ -132,8 +130,22 @@ function checkFile(whoCalled){
                 spanElement.textContent = exData.sCode;
                 pR4.appendChild(spanElement);// Sample Code English
                     
-                createAndAppendPElement("hf {]tbmK \\nÀt±i§Ä",dA4Bak,"pHeading mousePointer","false");//വളപ്രയോഗം 
+                addPara("hf {]tbmK \\nÀt±i§Ä",dA4Bak,"pHeading mousePointer","false");//വളപ്രയോഗം 
+               
+                var ph;
+                var phValues = {
+                    6.4: 135, 6.3: 270, 6.2: 405, 6.1: 540, 6: 675, 5.9: 810, 5.8: 945, 5.7: 1080, 5.6: 1215,
+                    5.5: 1350, 5.4: 1485, 5.3: 1620, 5.2: 1755, 5.1: 1890, 5: 2025, 4.9: 2160, 
+                    4.8: 2295, 4.7: 2430, 4.6: 2665, 4.5: 2700, 4.4: 2835, 4.3: 2970, 4.2: 3105,
+                    4.1: 3240, 4: 3375
+                };
                 
+                if (exData.ph <= 6.4) {
+        ph = phValues[parseFloat(exData.ph).toFixed(1)] || 3375;
+       
+        addPara("]pfnckw ImWp¶XvsImïv skân\\v " + ph + 
+        " {Kmw hoXw Ip½mbw tNÀt¡ïXmWv. CXn\\p cïv BgvN¡vtijw am{Xw cmkhf{]tbmKw \\S¯pI.",
+         dA4Bak, "commonRec mousePointer", "true");}//കുമ്മായം 
                 const vila=[exData.c1,exData.c2,exData.c3];
                 var uooriya; var rajfos; var mop;
                 vila.forEach(element => {  
@@ -177,10 +189,10 @@ function checkFile(whoCalled){
                            
         
         
-                            createAndAppendPElement("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//നെല്ല് 
-                            createAndAppendPElement("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
+                            addPara("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//നെല്ല് 
+                            addPara("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
                             dA4Bak,"test","true");
-                            createAndAppendPElement(" -a[yIme aq¸pÅ C\\§Ä¡v Hcp hnfbv¡v slIvSdn\\v " + uooriya +"In{Kmw bqdnb, "+rajfos+ "In{Kmw cmPvt^mkv, "+ mop +"In{Kmw ayqdntbäv Hm^v s]m«mjv F¶nh \\ÂImw. s]mSnhnXbmsW¦nÂ taÂ]dª Afhnsâ aq¶nsemcp`mKw hoXw bqdnb, hnX¨v HcmgvN¡v tijhpw, Nn\\¸v s]m«p¶ kab¯pw, IXncphcm³ XpS§p¶ kab¯pw \\ÂIWw. apgph³ `mKw cmPvt^mkpw \\nesamcp¡p¶ kab¯v ASnhfambn \\ÂImw. Ac`mKw hoXw s]m«mjv hnX¨v HcmgvNbv¡v tijhpw, IXncphcp¶ kab¯pw tNÀ¯vsImSp¡mw. ]dn¨p\\SoemsW¦nÂ Ac`mKw bqdnbbpw Ac`mKw s]m«mjpw apgph³ `mKw cmPvt^mkpw ASnhfambpw _m¡n`mKw bqdnbbpw s]m«mjpw IXncv hcp¶Xn\\v HcmgvN ap³]mbpw \\ÂImw.",
+                            addPara(" -a[yIme aq¸pÅ C\\§Ä¡v Hcp hnfbv¡v slIvSdn\\v " + uooriya +"In{Kmw bqdnb, "+rajfos+ "In{Kmw cmPvt^mkv, "+ mop +"In{Kmw ayqdntbäv Hm^v s]m«mjv F¶nh \\ÂImw. s]mSnhnXbmsW¦nÂ taÂ]dª Afhnsâ aq¶nsemcp`mKw hoXw bqdnb, hnX¨v HcmgvN¡v tijhpw, Nn\\¸v s]m«p¶ kab¯pw, IXncphcm³ XpS§p¶ kab¯pw \\ÂIWw. apgph³ `mKw cmPvt^mkpw \\nesamcp¡p¶ kab¯v ASnhfambn \\ÂImw. Ac`mKw hoXw s]m«mjv hnX¨v HcmgvNbv¡v tijhpw, IXncphcp¶ kab¯pw tNÀ¯vsImSp¡mw. ]dn¨p\\SoemsW¦nÂ Ac`mKw bqdnbbpw Ac`mKw s]m«mjpw apgph³ `mKw cmPvt^mkpw ASnhfambpw _m¡n`mKw bqdnbbpw s]m«mjpw IXncv hcp¶Xn\\v HcmgvN ap³]mbpw \\ÂImw.",
                             dA4Bak,"test","true");
                             
                             break;
@@ -224,8 +236,8 @@ function checkFile(whoCalled){
 
 
 
-                            createAndAppendPElement("hnf: sX§v ",dA4Bak,"vila mousePointer","false");//തെങ്ങ്
-                            createAndAppendPElement("HmtcmsX§n\\pw 15 apXÂ 25 Intem{Kmwhsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯p sImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +"{KmwhoXwbqdnb,  "+rajfos+ " {KmwhoXwcmPvt^mkv,  "+ mop +" {KmwhoXw s]m«mjv F¶nh tNÀt¡­XmWv.hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.  sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp slIvSdn\\v 2 In. {Kmw F¶ F¶ tXmXnÂ a®nÂtNÀ¡pI. aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp slIvSdn\\v 80 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp slÎdn\\v 10 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",
+                            addPara("hnf: sX§v ",dA4Bak,"vila mousePointer","false");//തെങ്ങ്
+                            addPara("HmtcmsX§n\\pw 15 apXÂ 25 Intem{Kmwhsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯p sImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +"{KmwhoXwbqdnb,  "+rajfos+ " {KmwhoXwcmPvt^mkv,  "+ mop +" {KmwhoXw s]m«mjv F¶nh tNÀt¡­XmWv.hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.  sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp slIvSdn\\v 2 In. {Kmw F¶ F¶ tXmXnÂ a®nÂtNÀ¡pI. aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp slIvSdn\\v 80 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp slÎdn\\v 10 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",
                             dA4Bak,"test","true");
                             break;
         
@@ -264,8 +276,8 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=110;
                             else if(exData.K<=355)   mop=80;
                             else if(exData.K<=395)   mop=55;
-                            createAndAppendPElement("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//കവുങ്ങ് 
-                            createAndAppendPElement("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
+                            addPara("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//കവുങ്ങ് 
+                            addPara("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
                             dA4Bak,"test","true");
                             break;
         
@@ -304,8 +316,8 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=770;
                             else if(exData.K<=355)   mop=590;
                             else if(exData.K<=395)   mop=400;
-                            createAndAppendPElement("hnf: PmXn ",dA4Bak,"vila mousePointer","false");//ജാതി
-                            createAndAppendPElement("Hmtcm PmXn ac¯n\\pw hÀj¯nÂ Hcn¡Â 50 Intem{Kmw hoXw ]¨nehfw/ Imenhfw/It¼mÌv F¶nh tNÀ¯psImSp¡p¶Xv DNnXamWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm ac¯n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +"{Kmw hoXw s]m«mjv F¶nh hÀj¯nÂ Hcn¡Â tNÀ¡pI  ",
+                            addPara("hnf: PmXn ",dA4Bak,"vila mousePointer","false");//ജാതി
+                            addPara("Hmtcm PmXn ac¯n\\pw hÀj¯nÂ Hcn¡Â 50 Intem{Kmw hoXw ]¨nehfw/ Imenhfw/It¼mÌv F¶nh tNÀ¯psImSp¡p¶Xv DNnXamWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm ac¯n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +"{Kmw hoXw s]m«mjv F¶nh hÀj¯nÂ Hcn¡Â tNÀ¡pI  ",
                             dA4Bak,"test","true");
                             break;
 
@@ -343,8 +355,8 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=310;
                             else if(exData.K<=355)   mop=235;
                             else if(exData.K<=395)   mop=160;
-                            createAndAppendPElement("hnf: hmg ",dA4Bak,"vila mousePointer","false");//വാഴ
-                            createAndAppendPElement("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
+                            addPara("hnf: hmg ",dA4Bak,"vila mousePointer","false");//വാഴ
+                            addPara("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
                             dA4Bak,"test","true");
                            
                             break;
@@ -383,8 +395,8 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=115;
                             else if(exData.K<=355)   mop=90;
                             else if(exData.K<=395)   mop=60;
-                            createAndAppendPElement("hnf: IpcpapfIv ",dA4Bak,"vila mousePointer","false");//കുരുമുളക് 
-                            createAndAppendPElement("Hmtcm sNSn¡pw 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¡mw.  ]cntim[\\m ^ew A\\pkcn¨v IpcpapfIv sNSn H¶n\\v " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh Xpey XhWIfmbn sabvþPq¬, HmKÌvþsk]väw_À amk§fnÂ tNÀt¡ïXmWv.",
+                            addPara("hnf: IpcpapfIv ",dA4Bak,"vila mousePointer","false");//കുരുമുളക് 
+                            addPara("Hmtcm sNSn¡pw 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¡mw.  ]cntim[\\m ^ew A\\pkcn¨v IpcpapfIv sNSn H¶n\\v " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh Xpey XhWIfmbn sabvþPq¬, HmKÌvþsk]väw_À amk§fnÂ tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
                            
                             break;
@@ -422,8 +434,8 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=230;
                             else if(exData.K<=355)   mop=180;
                             else if(exData.K<=395)   mop=120;
-                            createAndAppendPElement("hnf: t\\{´hmg ",dA4Bak,"vila mousePointer","false");//നേന്ത്ര 
-                            createAndAppendPElement("hmg H¶n\\v 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcmhmg¡pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv, "+mop+ " {Kmw hoXw s]m«mjv F¶nh 6 XhWIfmbnþ\\«v 1, 2, 3, 4, 5 amk§Ä¡v tijhpwIpe h¶ DSt\\bpw tNÀt¡ïXmWv.",
+                            addPara("hnf: t\\{´hmg ",dA4Bak,"vila mousePointer","false");//നേന്ത്ര 
+                            addPara("hmg H¶n\\v 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcmhmg¡pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv, "+mop+ " {Kmw hoXw s]m«mjv F¶nh 6 XhWIfmbnþ\\«v 1, 2, 3, 4, 5 amk§Ä¡v tijhpwIpe h¶ DSt\\bpw tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
                            
                             break;
@@ -562,16 +574,10 @@ function checkFile(whoCalled){
                    }//swithch End
         
         
-            
-            
-            createTableRow(table,element,slNo,unit,falam,manam,nilavaram);      })// soil contents loop end
-        
-        
-                
+ createTableRow(table,element,slNo,unit,falam,manam,nilavaram);      })// soil contents loop end
                         divContainer.appendChild(divA4);
-        
                         divA4.appendChild(dPageNo);
-                       createAndAppendPElement(i,dPageNo,"pagenumber","false");
+                        addPara(i,dPageNo,"pagenumber","false");
                         divA4.appendChild(divResult);
                         divResult.appendChild(divFarmerL);
                        divResult.appendChild(divFarmerR);
@@ -600,7 +606,7 @@ function checkFile(whoCalled){
 
                     refreshButten.disabled = false;
                     refreshButten.style.opacity = 1;
-                   
+                    footDiv.style.opacity=1;
                     
                     
         
@@ -629,10 +635,10 @@ for (let i = 0; i <=5;  i++) {
 }
 
 
-function createAndAppendPElement(text, div, cName,editSatus) {
+function  addPara(text, div, clsName,editSatus) {
     var p = document.createElement("p");
   
-    p.className = cName;
+    p.className = clsName;
     p.textContent = text;
     p.setAttribute("contenteditable", editSatus); // Make the paragraph editable
    
