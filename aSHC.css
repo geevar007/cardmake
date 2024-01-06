@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: karthika;
     src: url("malfont.ttf") format("woff2");
@@ -15,12 +14,13 @@ body {
     width:204mm;
     background-color:rgb(80, 156, 255);
     padding :10px;
-    border-radius: 10px;
     margin:auto;
     display:flex;
     justify-content: space-around;
     align-items: baseline;
-    z-index: 10000;
+    position: sticky;
+    top:0;
+    z-index: 3;
     }
     .oneByThree{
 width:35mm;
@@ -55,17 +55,33 @@ input[type="number"] {
   .toolsDiv{
     width:204mm;
     background-color:rgb(80, 156, 255);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     padding: 10px;
     margin:auto;
     display:flex;
     justify-content: space-around;
+    position: sticky;
+    top:50px;
+    z-index: 3;
   }
   .printBDiv{
+    width:90mm;
+    height: 44px;
+    border-radius: 8px;
+    background-color:#ffbf11;
     position: fixed;
-    top:91% ;
-    
-    margin-left: 69%;
+    top:85% ;
+    right: 13%;
+    opacity: 0;
+  margin: auto;
     z-index: 3;
+    display:flex;
+    justify-content: space-evenly;
+  }
+  img{
+
+    border-radius: 21px;
   }
 #displayDiv{
 
