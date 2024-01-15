@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>database serch</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+</head>
+<body>
+  
+<div id="container">
+
+    <button style="width:60px;margin-left: 10px;"id="myButton"onclick="toMalayalam()">Mal</button>
+<input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"><br>
+
+<input style="width:160px; height:15px" type="text" placeholder="Name" id="name"autocomplete="off">
+
+
+
+</div>
+</body>
+
+
+
+
+<script  src="dbSearch.js"></script>
+
+<style>
+@font-face {
+    font-family: karthika;
+    src: url(malfont.ttf);
+  }
+
+ 
+#container{
+
+  margin:auto;
+  margin-top: 25px;
+  width:fit-content;
+  border: 1px rebeccapurple solid;
+}
+input, #nameautocomplete-list{
+
+margin: 10px;
+
+}
+#hNo{
+ 
+width:70px ;
+
+}
+
+
+</style>
+
+
+</html>
