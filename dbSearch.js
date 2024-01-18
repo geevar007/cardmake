@@ -1,4 +1,4 @@
-
+document.body.style.fontFamily = 'Arial, sans-serif';
 const fileInput = document.getElementById("excel-file");
 const pName=[];
     const hName=[];
@@ -12,31 +12,26 @@ autocomplete(document.getElementById("name"));
   const checkbox = document.getElementById('changeFontCheckbox');
   const textToChange = document.getElementById('nameautocomplete-list');
   var myButton = document.getElementById("myButton");
-
-
-
-
+  const fileLabel = document.getElementById('file-label');
+const mainDiv=document.getElementById('container');
 function autocomplete(inp) {
  
-  var currentFocus;
-   
     inp.addEventListener("input", function(e) {
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
-       
-  
-  
- 
+      
         if (!val) { return false }
-        currentFocus = -1;
+     
         /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
         if(lang=="Mal"){ a.style.fontFamily = 'karthika'}
        /*append the DIV element as a child of the autocomplete container:*/
-        this.parentNode.appendChild(a);
+       //mainDiv.parentNode.appendChild(a);
+       mainDiv.appendChild(a);
+        
         
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
@@ -49,81 +44,12 @@ function autocomplete(inp) {
        
             /*insert a input field that will hold the current array item's value:*/
            
-           
-            /*execute a function when someone clicks on the item value (DIV element):*/
-            b.addEventListener("click", function(e) {
-                /*insert the value for the autocomplete text field:*/
-               // inp.value = this.getElementsByTagName("input")[0].value;
-               
-               console.log(" this function woring 51")
-  
-                /*close the list of autocompleted values,
-                (or any other open lists of autocompleted values:*/
-                //closeAllLists();
-            });
+         
             a.appendChild(b);
           }
         }
     });//event listner end
    
-   
-   
-    /*execute a function presses a key on the keyboard:*/
-   
-   
-    inp.addEventListener("keydown", function(e) {
-        var x = document.getElementById(this.id + "autocomplete-list");
-        if (x) x = x.getElementsByTagName("div");
-        if (e.keyCode == 40) { 
-          /*If the arrow DOWN key is pressed,
-          increase the currentFocus variable:*/
-          currentFocus++;
-          /*and and make the current item more visible:*/
-          addActive(x);
-          console.log("dwon key pressed-"+x);
-        } else if (e.keyCode == 38) { //up
-          /*If the arrow UP key is pressed,
-          decrease the currentFocus variable:*/
-          currentFocus--;
-          /*and and make the current item more visible:*/
-          addActive(x);
-        } else if (e.keyCode == 13) {
-          /*If the ENTER key is pressed, prevent the form from being submitted,*/
-          e.preventDefault();
-          if (currentFocus > -1) {
-            /*and simulate a click on the "active" item:*/
-            if (x) x[currentFocus].click();
-          }
-        }
-    });
-    
-    
-    
-    
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-    function addActive(x) {
-      /*a function to classify an item as "active":*/
-      if (!x) return false;
-      /*start by removing the "active" class on all items:*/
-      removeActive(x);
-      if (currentFocus >= x.length) currentFocus = 0;
-      if (currentFocus < 0) currentFocus = (x.length - 1);
-      /*add class "autocomplete-active":*/
-      x[currentFocus].classList.add("autocomplete-active");
-    }
-//////////////////////////////////////////////////////////////////////////////////////
-
-
-    function removeActive(x) {
-      /*a function to remove the "active" class from all autocomplete items:*/
-      for (var i = 0; i < x.length; i++) {
-        x[i].classList.remove("autocomplete-active");
-      }
-    }
-
-///////////////////////////////////////////////////
-
     function closeAllLists(elmnt) {
 
       
@@ -136,27 +62,22 @@ function autocomplete(inp) {
         }
       }
     }
+ } //autocomplete End here
 
-
-
-
-    /*execute a function when someone clicks in the document:*/
-    document.addEventListener("click", function (e) {
-       console.log("function woring 141")
-      //closeAllLists(e.target);
-    });
-  } //autocomplete End here
-
-  
-  
-  
   function checkFile(){
 
-    console.log("checkFile working")
+    hName.length = 0;
+    hNo.length = 0;
+    mNo.length = 0;
+    pName.length = 0;
+
 const file = fileInput.files[0]; 
   
   
   if (file) {
+    fileLabel.textContent = fileInput.files[0].name.replace(/\.[^/.]+$/, '');
+    fileLabel.style.backgroundColor="#3498db";
+    fileLabel.style.color="white";
       const reader = new FileReader();
       reader.onload = function(e) {
           const data = new Uint8Array(e.target.result);
@@ -210,13 +131,19 @@ const file = fileInput.files[0];
  
         function toMalayalam() {
           const textToChange = document.getElementById('nameautocomplete-list');
-     console.log("malbuton is woiding")
+     
             if (lang=="Eng") {lang="Mal";myButton.innerHTML = "Eng";
                 // Change the font when the checkbox is checked
                if(textToChange){ textToChange.style.fontFamily = 'karthika'}
                 inputBox.style.fontFamily='karthika';
+                textToChange.style.fontSize="18px";
+                inputBox.placeholder="-t]cv :";
+                inputBox.style.fontSize=" 16px";
             } else {lang="Eng";myButton.innerHTML = "Mal";
                 // Reset the font when the checkbox is unchecked
                 if(textToChange){  textToChange.style.fontFamily = 'Arial, sans-serif'}
                 inputBox.style.fontFamily='Arial, sans-serif';
+                inputBox.placeholder="Name:";
+                inputBox.style.fontSize=" 12px";
+                textToChange.style.fontSize="16px";
             }};
