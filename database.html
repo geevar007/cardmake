@@ -10,12 +10,13 @@
 <body>
   
 <div id="container">
-
-    <button style="width:60px;margin-left: 10px;"id="myButton"onclick="toMalayalam()">Mal</button>
+<div id="title">
+    <button style="width:90px;margin-left: 10px;"id="myButton"onclick="toMalayalam()">Mal</button>
+    <label for="excel-file" class="custom-file-input"id="file-label">Choose a File</label>
 <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"><br>
 
-<input style="width:160px; height:15px" type="text" placeholder="Name" id="name"autocomplete="off">
-
+<input type="text" placeholder="Name" id="name"autocomplete="off">
+</div>
 
 
 </div>
@@ -32,24 +33,64 @@
     src: url(malfont.ttf);
   }
 
- 
+  button {border-radius: 8px;
+  
+    background-color: white;
+    color: #3498db;
+  border: 1px solid #3498db;
+  font-weight: bold;
+  cursor: pointer;
+  
+  }
 #container{
-
+  
   margin:auto;
   margin-top: 25px;
   width:fit-content;
-  border: 1px rebeccapurple solid;
+  border: 1px #3498db solid;
 }
-input, #nameautocomplete-list{
+#title{
 
+margin:auto;
+width: fit-content;
+border-bottom: 2px solid sandybrown;
+
+
+}
+
+#excel-file {
+            display: none;
+        }
+
+
+        .custom-file-input {
+          margin: 10px;
+            display: inline-block;
+            padding: 5px 7px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid #3498db;
+            color: #3498db;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+input, #nameautocomplete-list{
+  
 margin: 10px;
 
 }
-#hNo{
- 
-width:70px ;
-
+#name{
+  border-radius: 4px;
+  border: 1px solid #3498db;
+  width:163px; 
+  height:16px
 }
+p{
+
+  cursor: pointer;
+}
+
 
 
 </style>
