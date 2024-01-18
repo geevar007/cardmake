@@ -1,5 +1,6 @@
 document.body.style.fontFamily = 'Arial, sans-serif';
 const fileInput = document.getElementById("excel-file");
+
 const pName=[];
     const hName=[];
     const hNo=[];
@@ -20,8 +21,9 @@ function autocomplete(inp) {
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
-      
-        if (!val) { return false }
+        const file = fileInput.files[0]; 
+        if(!file){return false }
+        if (!val) {return false }
      
         /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
@@ -71,9 +73,7 @@ function autocomplete(inp) {
     mNo.length = 0;
     pName.length = 0;
 
-const file = fileInput.files[0]; 
-  
-  
+    const file = fileInput.files[0]; 
   if (file) {
     fileLabel.textContent = fileInput.files[0].name.replace(/\.[^/.]+$/, '');
     fileLabel.style.backgroundColor="#3498db";
@@ -135,7 +135,7 @@ const file = fileInput.files[0];
             if (lang=="Eng") {lang="Mal";myButton.innerHTML = "Eng";
                 // Change the font when the checkbox is checked
                if(textToChange){ textToChange.style.fontFamily = 'karthika';
-                                  textToChange.style.fontSize="18px"}
+                                  textToChange.style.fontSize="22px"}
                 inputBox.style.fontFamily='karthika';
                
                 inputBox.placeholder="-t]cv :";
@@ -143,7 +143,7 @@ const file = fileInput.files[0];
             } else {lang="Eng";myButton.innerHTML = "Mal";
                 // Reset the font when the checkbox is unchecked
                 if(textToChange){ textToChange.style.fontFamily = 'Arial, sans-serif';
-                                  textToChange.style.fontSize="16px"}
+                                  textToChange.style.fontSize="20px"}
                 inputBox.style.fontFamily='Arial, sans-serif';
                 inputBox.placeholder="Name:";
                 inputBox.style.fontSize=" 12px";
