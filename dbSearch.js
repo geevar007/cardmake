@@ -27,7 +27,7 @@ function autocomplete(inp) {
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
-        if(lang=="Mal"){ a.style.fontFamily = 'karthika'}
+        if(lang=="Mal") { a.style.fontFamily = 'karthika'};
        /*append the DIV element as a child of the autocomplete container:*/
        //mainDiv.parentNode.appendChild(a);
        mainDiv.appendChild(a);
@@ -134,16 +134,18 @@ const file = fileInput.files[0];
      
             if (lang=="Eng") {lang="Mal";myButton.innerHTML = "Eng";
                 // Change the font when the checkbox is checked
-               if(textToChange){ textToChange.style.fontFamily = 'karthika'}
+               if(textToChange){ textToChange.style.fontFamily = 'karthika';
+                                  textToChange.style.fontSize="18px"}
                 inputBox.style.fontFamily='karthika';
-                textToChange.style.fontSize="18px";
+               
                 inputBox.placeholder="-t]cv :";
                 inputBox.style.fontSize=" 16px";
             } else {lang="Eng";myButton.innerHTML = "Mal";
                 // Reset the font when the checkbox is unchecked
-                if(textToChange){  textToChange.style.fontFamily = 'Arial, sans-serif'}
+                if(textToChange){ textToChange.style.fontFamily = 'Arial, sans-serif';
+                                  textToChange.style.fontSize="16px"}
                 inputBox.style.fontFamily='Arial, sans-serif';
                 inputBox.placeholder="Name:";
                 inputBox.style.fontSize=" 12px";
-                textToChange.style.fontSize="16px";
+              
             }};
