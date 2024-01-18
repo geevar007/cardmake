@@ -42,7 +42,7 @@ function autocomplete(inp) {
             /*create a DIV element for each matching element:*/
             b = document.createElement("p");
             /*make the matching letters bold:*/
-            b.innerHTML = 1+i+'<br>'+pName[i]+'<br>'+hNo[i]+","+hName[i]+'<br>'+"Mob: "+mNo[i];
+            b.innerHTML = pName[i]+".   -  . "+(1+i)+'<br>'+hNo[i]+" ,  "+hName[i]+'<br>'+"Mob:"+mNo[i];
        
             /*insert a input field that will hold the current array item's value:*/
            
