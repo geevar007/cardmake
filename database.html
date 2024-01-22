@@ -13,10 +13,26 @@
 <div id="container">
 <div id="title">
     <button style="width:90px;margin-left: 10px;"id="myButton"onclick="toMalayalam()">Mal</button>
-    <label for="excel-file" class="custom-file-input"id="file-label">Choose a File</label>
+   
+    <label for="excel-file" class="custom-file-input"id="file-label" style="min-width:87px">Choose a File</label>
 <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"><br>
-
+<div class="radio-group">
+  <label class="radio-option">
+    <input type="radio" name="option" value="pName"checked> Name
+  </label>
+  
+  <label class="radio-option">
+    <input type="radio" name="option" value="hName"> House
+  </label>
+  
+  <label class="radio-option">
+    <input type="radio" name="option" value="hNo"> No
+  </label>
+</div>
+<div class="searchInput">
 <input type="text" placeholder="Name" id="name"autocomplete="off">
+</div>
+
 </div>
 
 
@@ -34,9 +50,10 @@
     src: url(malfont.ttf);
   }
 
-  button {border-radius: 8px;
-  
-    background-color: white;
+  button {
+    
+    border-radius: 8px;
+  background-color: white;
     color: #3498db;
   border: 1px solid #3498db;
   font-weight: bold;
@@ -44,7 +61,7 @@
   
   }
   label{
-
+    text-align: center;
     transition: transform 0.7s ease;
 
   }
@@ -56,7 +73,7 @@
     transition-duration: 0.3s;
 }
 #container{
-  
+  padding:10px;
   margin:auto;
   margin-top: 25px;
   width:fit-content;
@@ -67,6 +84,15 @@
 margin:auto;
 width: fit-content;
 border-bottom: 2px solid sandybrown;
+
+
+}
+.searchInput{
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
 
 
 }
