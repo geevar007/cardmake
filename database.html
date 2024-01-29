@@ -12,10 +12,12 @@
   
 <div id="container">
 <div id="title">
+
     <button style="width:90px;margin-left: 10px;"id="myButton"onclick="toMalayalam()">Mal</button>
    
     <label for="excel-file" class="custom-file-input"id="file-label" style="min-width:87px">Choose a File</label>
 <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"><br>
+
 <div class="radio-group">
   <label class="radio-option">
     <input type="radio" name="option" value="pName"checked> Name
@@ -32,7 +34,7 @@
 <div class="searchInput">
 <input type="text" placeholder="Name" id="name"autocomplete="off">
 </div>
-
+<P id="counter"></P>
 </div>
 
 
@@ -75,15 +77,22 @@
 #container{
   padding:10px;
   margin:auto;
-  margin-top: 25px;
+  margin-top: 15px;
   width:fit-content;
   border: 1px #3498db solid;
 }
 #title{
 
+
 margin:auto;
 width: fit-content;
 border-bottom: 2px solid sandybrown;
+
+
+}
+#counter{
+
+margin: 1px;;
 
 
 }
