@@ -8,6 +8,7 @@ const fileInput = document.getElementById("excel-file");
     const rName=[];
     var lang="Eng"
     const inputBox=document.getElementById("name");
+    const counter=document.getElementById("counter");
   autocomplete(document.getElementById("name"));
   const checkbox = document.getElementById('changeFontCheckbox');
   const textToChange = document.getElementById('nameautocomplete-list');
@@ -28,6 +29,7 @@ function autocomplete(inp) {
         
         /*create a DIV element that will contain the items (values):*/
         a = document.createElement("DIV");
+       
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
         a.style.display="none";
@@ -35,7 +37,7 @@ function autocomplete(inp) {
        /*append the DIV element as a child of the autocomplete container:*/
        //mainDiv.parentNode.appendChild(a);
        mainDiv.appendChild(a);
-        
+       var totalFoud=0;
         
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
@@ -44,21 +46,24 @@ function autocomplete(inp) {
            
             b = document.createElement("p");
             
-            b.innerHTML = pName[i]+" - ( "+ rName[i] +" ) "+".   -  . "+(1+i)+'<br>'+
-                            hNo[i]+" ,  "+hName[i]+'<br>'+
+            b.innerHTML = (1+i)+' '+pName[i]+" - ( "+ rName[i] +" ) "+"_ "+
+                            hNo[i]+" _ "+hName[i]+' _'+
                             "Mob:"+mNo[i];
        
             
            
             a.style.display="block";
             a.appendChild(b);
+            totalFoud++;
           }
         }
+        counter.innerHTML= "Total Found: "+totalFoud
+
     });//event listner end*/}})
    
     function closeAllLists(elmnt) {
 
-      
+      counter.innerHTML= ""
       /*close all autocomplete lists in the document,
       except the one passed as an argument:*/
       var x = document.getElementsByClassName("autocomplete-items");
@@ -185,3 +190,4 @@ function autocomplete(inp) {
       return pName;
     }}
 
+ 
