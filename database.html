@@ -20,19 +20,20 @@
 
 <div class="radio-group">
   <label class="radio-option">
-    <input type="radio" name="option" value="pName"checked> Name
+    <input type="radio" name="option" value="pName"checked onclick="keyPressed()"> Name
   </label>
   
   <label class="radio-option">
-    <input type="radio" name="option" value="hName"> House
+    <input type="radio" name="option" value="hName"onclick="keyPressed()"> Home
   </label>
   
   <label class="radio-option">
-    <input type="radio" name="option" value="hNo"> No
+    <input type="radio" name="option" value="hNo"onclick="keyPressed()"> No
   </label>
 </div>
 <div class="searchInput">
 <input type="text" placeholder="Name" id="name"autocomplete="off">
+<input type="text" placeholder="Search In Search:" id="house"autocomplete="off">
 </div>
 <P id="counter"></P>
 </div>
@@ -67,7 +68,7 @@
     transition: transform 0.7s ease;
 
   }
-  label:hover, img:hover {
+  label:hover{
     background-color: rgb(208, 255, 0);
     color: rgb(58, 39, 4);
     cursor: pointer;
@@ -92,8 +93,8 @@ border-bottom: 2px solid sandybrown;
 }
 #counter{
 
-margin: 1px;;
-
+margin: 1px;
+cursor: default;
 
 }
 .searchInput{
