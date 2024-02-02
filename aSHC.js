@@ -439,8 +439,45 @@ function checkFile(whoCalled){
                             dA4Bak,"test","true");
                            
                             break;
+
+                            case"rr":
+                            if (exData.OC <= 0.16) uooriya = 207;
+                            else if (exData.OC <= 0.33) uooriya = 190;
+                            else if (exData.OC <= 0.50) uooriya = 172;
+                            else if (exData.OC <= 0.75) uooriya = 157;
+                            else if (exData.OC <= 1)    uooriya = 147;
+                            else if (exData.OC <= 1.25) uooriya = 136;
+                            else if (exData.OC<= 1.50) uooriya =  126;
+                            else if (exData.OC<= 1.83) uooriya = 115;
+                            else if (exData.OC<= 2.16) uooriya =102;
+                            else if (exData.OC<= 2.50) uooriya = 87;
         
-                          
+                                 if(exData.P <=3)      rajfos=532;
+                            else if( exData.P <=6.5)   rajfos= 487;
+                            else if( exData.P <=10)    rajfos= 440;
+                            else if( exData.P <=13.5)  rajfos=391;
+                            else if( exData.P <=17)    rajfos= 345;
+                            else if( exData.P <=20.5)  rajfos= 296;
+                            else if( exData.P <=24)    rajfos= 250;
+                            else if( exData.P <=27.5)  rajfos= 200;
+                            else if( exData.P <=30)    rajfos= 154;
+                            else if( exData.P <=34.5)  rajfos= 104;
+                            else rajfos=50;
+        
+                                if(exData.K<=35)     mop=160;
+                            else if(exData.K<=75)    mop=146;
+                            else if(exData.K<=115)   mop=133;
+                            else if(exData.K<=155)   mop=118;
+                            else if(exData.K<=195)   mop=104;
+                            else if(exData.K<=235)   mop=89;
+                            else if(exData.K<=275)   mop=75;
+                            else if(exData.K<=315)   mop=60;
+                            else if(exData.K<=355)   mop=46;
+                            else if(exData.K<=395)   mop=31;
+                            addPara("hnf: d-º-À-",dA4Bak,"vila mousePointer","false");//റബ്ബർ
+                            addPara("Hcp sNSn¡v  " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " knwKnÄ kq¸Àt^mkvt^äpw, "+mop+ " {Kmw s]m«mjpw AS§p¶ an{inXw hÀj¯nÂ Hcp XhWbmtbm (G{]nÂþsabvamk¯nÂ) AsÃ¦nÂ c-ïp-  XhWIfmbn (G{]nÂþsabv, sk]väw_ÀþHtÎm_À amk¯nÂ)  tNÀ¯psImSp¡pI.",
+                            dA4Bak,"test","true");
+                            break;
         
         
                 }
@@ -453,7 +490,7 @@ function checkFile(whoCalled){
                 
          
         
-        var slNo=0;
+        var slNo=0;i
         var unit="";
         var falam="";
         var manam;//manadhandam
@@ -660,9 +697,3 @@ function createDiv(className) {
     div.className = className;
     return div;
   }
- 
- function clearInputs(){
-    alert("cleared the inputs")
- }
-
-
