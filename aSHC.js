@@ -146,6 +146,13 @@ function checkFile(whoCalled){
         addPara("]pfnckw ImWp¶XvsImïv skân\\v " + ph + 
         " {Kmw hoXw Ip½mbw tNÀt¡ïXmWv. CXn\\p cïv BgvN¡vtijw am{Xw cmkhf{]tbmKw \\S¯pI.",
          dA4Bak, "commonRec mousePointer", "true");}//കുമ്മായം 
+         if (exData.Cu<1){addPara("sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp G¡dn\\v 800 {Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
+         if (exData.Mg<120){addPara("aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp G¡dn\\v 32 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")}
+         if (exData.B<.5){addPara("t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp G¡dn\\v 4 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
+         if ( exData.Sa<5){addPara("kÄ^À A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn  Hcp G¡dn\\v kÄ^À s]mSn 10 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI",dA4Bak,"test","true")};
+        
+         if (  exData.Zn<1){addPara("kn¦v A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn kn¦v kÂt^äv Hcp G¡dn\\v 8 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")};
+        
                 const vila=[exData.c1,exData.c2,exData.c3];
                 var uooriya; var rajfos; var mop;
                 vila.forEach(element => {  
@@ -162,8 +169,8 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya = 145;
                             else if (exData.OC<= 1.83) uooriya = 140;
                             else if (exData.OC<= 2.16) uooriya = 125;
-                            else if (exData.OC<= 2.50) uooriya = 105;
-        
+                            else uooriya=105;
+                            
                                  if(exData.P <=3)      rajfos=290;
                             else if( exData.P <=6.5)   rajfos= 260;
                             else if( exData.P <=10)    rajfos= 240;
@@ -185,14 +192,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=45;
                             else if(exData.K<=315)   mop=35;
                             else if(exData.K<=355)   mop=25;
-                            else if(exData.K<=395)   mop=20;
+                            else mop=20;
                            
-        
         
                             addPara("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//നെല്ല് 
                             addPara("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
                             dA4Bak,"test","true");
-                            addPara(" -a[yIme aq¸pÅ C\\§Ä¡v Hcp hnfbv¡v slIvSdn\\v " + uooriya +"In{Kmw bqdnb, "+rajfos+ "In{Kmw cmPvt^mkv, "+ mop +"In{Kmw ayqdntbäv Hm^v s]m«mjv F¶nh \\ÂImw. s]mSnhnXbmsW¦nÂ taÂ]dª Afhnsâ aq¶nsemcp`mKw hoXw bqdnb, hnX¨v HcmgvN¡v tijhpw, Nn\\¸v s]m«p¶ kab¯pw, IXncphcm³ XpS§p¶ kab¯pw \\ÂIWw. apgph³ `mKw cmPvt^mkpw \\nesamcp¡p¶ kab¯v ASnhfambn \\ÂImw. Ac`mKw hoXw s]m«mjv hnX¨v HcmgvNbv¡v tijhpw, IXncphcp¶ kab¯pw tNÀ¯vsImSp¡mw. ]dn¨p\\SoemsW¦nÂ Ac`mKw bqdnbbpw Ac`mKw s]m«mjpw apgph³ `mKw cmPvt^mkpw ASnhfambpw _m¡n`mKw bqdnbbpw s]m«mjpw IXncv hcp¶Xn\\v HcmgvN ap³]mbpw \\ÂImw.",
+                            addPara(" -a[yIme aq¸pÅ C\\§Ä¡v Hcp hnfbv¡v slIvSdn\\v " + uooriya +" In{Kmw bqdnb, "+rajfos+ " In{Kmw cmPvt^mkv, "+ mop +"In{Kmw ayqdntbäv Hm^v s]m«mjv F¶nh \\ÂImw. s]mSnhnXbmsW¦nÂ taÂ]dª Afhnsâ aq¶nsemcp`mKw hoXw bqdnb, hnX¨v HcmgvN¡v tijhpw, Nn\\¸v s]m«p¶ kab¯pw, IXncphcm³ XpS§p¶ kab¯pw \\ÂIWw. apgph³ `mKw cmPvt^mkpw \\nesamcp¡p¶ kab¯v ASnhfambn \\ÂImw. Ac`mKw hoXw s]m«mjv hnX¨v HcmgvNbv¡v tijhpw, IXncphcp¶ kab¯pw tNÀ¯vsImSp¡mw. ]dn¨p\\SoemsW¦nÂ Ac`mKw bqdnbbpw Ac`mKw s]m«mjpw apgph³ `mKw cmPvt^mkpw ASnhfambpw _m¡n`mKw bqdnbbpw s]m«mjpw IXncv hcp¶Xn\\v HcmgvN ap³]mbpw \\ÂImw.",
                             dA4Bak,"test","true");
                             
                             break;
@@ -208,8 +214,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya = 550;
                             else if (exData.OC<= 1.83) uooriya = 530;
                             else if (exData.OC<= 2.16) uooriya = 470;
-                            else if (exData.OC<= 2.50) uooriya = 400;
-        
+                            else uooriya=400;
                                  if(exData.P <=3)      rajfos=1090;
                             else if( exData.P <=6.5)   rajfos= 995;
                             else if( exData.P <=10)    rajfos= 900;
@@ -231,14 +236,15 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=650;
                             else if(exData.K<=315)   mop=520;
                             else if(exData.K<=355)   mop=400;
-                            else if(exData.K<=395)   mop=270;
-
+                            else mop=270;
 
 
 
                             addPara("hnf: sX§v ",dA4Bak,"vila mousePointer","false");//തെങ്ങ്
-                            addPara("HmtcmsX§n\\pw 15 apXÂ 25 Intem{Kmwhsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯p sImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +"{KmwhoXwbqdnb,  "+rajfos+ " {KmwhoXwcmPvt^mkv,  "+ mop +" {KmwhoXw s]m«mjv F¶nh tNÀt¡­XmWv.hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.  sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp slIvSdn\\v 2 In. {Kmw F¶ F¶ tXmXnÂ a®nÂtNÀ¡pI. aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp slIvSdn\\v 80 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp slÎdn\\v 10 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",
+                            addPara("Hmtcm sX§n\\pw 15 apXÂ 25 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯psImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh tNÀt¡ïXmWv. hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.",
                             dA4Bak,"test","true");
+
+                           
                             break;
         
                            
@@ -252,7 +258,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya = 160;
                             else if (exData.OC<= 1.83) uooriya = 155;
                             else if (exData.OC<= 2.16) uooriya = 140;
-                            else if (exData.OC<= 2.50) uooriya = 120;
+                            else  uooriya = 120;
         
                                  if(exData.P <=3)      rajfos=255;
                             else if( exData.P <=6.5)   rajfos= 235;
@@ -275,7 +281,7 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=135;
                             else if(exData.K<=315)   mop=110;
                             else if(exData.K<=355)   mop=80;
-                            else if(exData.K<=395)   mop=55;
+                            else  mop=55;
                             addPara("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//കവുങ്ങ് 
                             addPara("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
                             dA4Bak,"test","true");
@@ -292,7 +298,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya = 810;
                             else if (exData.OC<= 1.83) uooriya = 780;
                             else if (exData.OC<= 2.16) uooriya = 690;
-                            else if (exData.OC<= 2.50) uooriya = 590;
+                            else uooriya = 590;
         
                                  if(exData.P <=3)      rajfos=1600;
                             else if( exData.P <=6.5)   rajfos=1460;
@@ -315,7 +321,7 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=960;
                             else if(exData.K<=315)   mop=770;
                             else if(exData.K<=355)   mop=590;
-                            else if(exData.K<=395)   mop=400;
+                            else  mop=400;
                             addPara("hnf: PmXn ",dA4Bak,"vila mousePointer","false");//ജാതി
                             addPara("Hmtcm PmXn ac¯n\\pw hÀj¯nÂ Hcn¡Â 50 Intem{Kmw hoXw ]¨nehfw/ Imenhfw/It¼mÌv F¶nh tNÀ¯psImSp¡p¶Xv DNnXamWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm ac¯n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +"{Kmw hoXw s]m«mjv F¶nh hÀj¯nÂ Hcn¡Â tNÀ¡pI  ",
                             dA4Bak,"test","true");
@@ -331,7 +337,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya = 160;
                             else if (exData.OC<= 1.83) uooriya = 155;
                             else if (exData.OC<= 2.16) uooriya = 140;
-                            else if (exData.OC<= 2.50) uooriya = 120;
+                            else uooriya = 120;
         
                                  if(exData.P <=3)      rajfos=1230;
                             else if( exData.P <=6.5)   rajfos= 1170;
@@ -354,9 +360,9 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=385;
                             else if(exData.K<=315)   mop=310;
                             else if(exData.K<=355)   mop=235;
-                            else if(exData.K<=395)   mop=160;
+                            else  mop=160;
                             addPara("hnf: hmg ",dA4Bak,"vila mousePointer","false");//വാഴ
-                            addPara("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
+                            addPara("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +" {Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
                             dA4Bak,"test","true");
                            
                             break;
@@ -371,7 +377,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya =  80;
                             else if (exData.OC<= 1.83) uooriya = 75;
                             else if (exData.OC<= 2.16) uooriya = 70;
-                            else if (exData.OC<= 2.50) uooriya = 60;
+                            else uooriya = 60;
         
                                  if(exData.P <=3)      rajfos=320;
                             else if( exData.P <=6.5)   rajfos= 290;
@@ -394,7 +400,7 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=145;
                             else if(exData.K<=315)   mop=115;
                             else if(exData.K<=355)   mop=90;
-                            else if(exData.K<=395)   mop=60;
+                            else  mop=60;
                             addPara("hnf: IpcpapfIv ",dA4Bak,"vila mousePointer","false");//കുരുമുളക് 
                             addPara("Hmtcm sNSn¡pw 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¡mw.  ]cntim[\\m ^ew A\\pkcn¨v IpcpapfIv sNSn H¶n\\v " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh Xpey XhWIfmbn sabvþPq¬, HmKÌvþsk]väw_À amk§fnÂ tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
@@ -410,7 +416,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya =  310;
                             else if (exData.OC<= 1.83) uooriya = 295;
                             else if (exData.OC<= 2.16) uooriya = 260;
-                            else if (exData.OC<= 2.50) uooriya = 225;
+                            else uooriya = 225;
         
                                  if(exData.P <=3)      rajfos=735;
                             else if( exData.P <=6.5)   rajfos= 670;
@@ -433,9 +439,9 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=290;
                             else if(exData.K<=315)   mop=230;
                             else if(exData.K<=355)   mop=180;
-                            else if(exData.K<=395)   mop=120;
+                            else  mop=120;
                             addPara("hnf: t\\{´hmg ",dA4Bak,"vila mousePointer","false");//നേന്ത്ര 
-                            addPara("hmg H¶n\\v 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcmhmg¡pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv, "+mop+ " {Kmw hoXw s]m«mjv F¶nh 6 XhWIfmbnþ\\«v 1, 2, 3, 4, 5 amk§Ä¡v tijhpwIpe h¶ DSt\\bpw tNÀt¡ïXmWv.",
+                            addPara("hmg H¶n\\v 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcmhmg¡pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv, "+mop+ " {Kmw hoXw s]m«mjv F¶nh 6 XhWIfmbnþ\\«v 1, 2, 3, 4, 5 amk§Ä¡v tijhpwIpe h¶ DSt\\bpw tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
                            
                             break;
@@ -450,7 +456,7 @@ function checkFile(whoCalled){
                             else if (exData.OC<= 1.50) uooriya =  126;
                             else if (exData.OC<= 1.83) uooriya = 115;
                             else if (exData.OC<= 2.16) uooriya =102;
-                            else if (exData.OC<= 2.50) uooriya = 87;
+                            else  uooriya = 87;
         
                                  if(exData.P <=3)      rajfos=532;
                             else if( exData.P <=6.5)   rajfos= 487;
@@ -473,7 +479,7 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=75;
                             else if(exData.K<=315)   mop=60;
                             else if(exData.K<=355)   mop=46;
-                            else if(exData.K<=395)   mop=31;
+                            else  mop=31;
                             addPara("hnf: d-º-À-",dA4Bak,"vila mousePointer","false");//റബ്ബർ
                             addPara("Hcp sNSn¡v  " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " knwKnÄ kq¸Àt^mkvt^äpw, "+mop+ " {Kmw s]m«mjpw AS§p¶ an{inXw hÀj¯nÂ Hcp XhWbmtbm (G{]nÂþsabvamk¯nÂ) AsÃ¦nÂ c-ïp-  XhWIfmbn (G{]nÂþsabv, sk]väw_ÀþHtÎm_À amk¯nÂ)  tNÀ¯psImSp¡pI.",
                             dA4Bak,"test","true");
@@ -611,7 +617,8 @@ function checkFile(whoCalled){
                    }//swithch End
         
         
- createTableRow(table,element,slNo,unit,falam,manam,nilavaram);      })// soil contents loop end
+ createTableRow(table,element,slNo,unit,falam,manam,nilavaram);     
+                                                                 })// soil contents loop end
                         divContainer.appendChild(divA4);
                         divA4.appendChild(dPageNo);
                         addPara(i,dPageNo,"pagenumber","false");
@@ -697,3 +704,6 @@ function createDiv(className) {
     div.className = className;
     return div;
   }
+ 
+
+
