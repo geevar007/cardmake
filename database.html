@@ -7,34 +7,59 @@
   <title>database serch</title>
   <link rel="icon" type="image/x-icon" href="lense.jpg">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
 </head>
 <body>
-  
+
+  <div id="home">               
+
+    <label for="excel-file" class="custom-file-input"id="file-label">Choose a File</label>
+    <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()">
+
+    <div class="radio-group">
+      <label class="radio-option">
+        <input type="radio" name="option" value="pName"checked onclick="keyPressed()"> Name
+      </label>
+      
+      <label class="radio-option">
+        <input type="radio" name="option" value="hName"onclick="keyPressed()"> Home
+      </label>
+      
+      <label class="radio-option">
+        <input type="radio" name="option" value="hNo"onclick="keyPressed()"> No
+      </label>
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+  <div id="newInputDiv">
+    
+    <div class="leftEnd">
+ 
+    <svg width="19" height="19" class="" 
+    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    
+    <path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="#717478" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 16L21 21" stroke="#717478" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+  </path></svg></div>
+  <input type="text" class="newInput"placeholder="Search"id="name"autocomplete="off">
+  <input type="text" Class="newInput rightEnd" placeholder=":"id="house"autocomplete="off">
+
+ </div>
+
+
 <div id="container">
-<div id="title">
+ 
+  <div id="title">
 
-    <button style="width:90px;margin-left: 10px;"id="myButton"onclick="toMalayalam()">Mal</button>
-   
-    <label for="excel-file" class="custom-file-input"id="file-label" style="min-width:87px">Choose a File</label>
-<input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"><br>
-
-<div class="radio-group">
-  <label class="radio-option">
-    <input type="radio" name="option" value="pName"checked onclick="keyPressed()"> Name
-  </label>
-  
-  <label class="radio-option">
-    <input type="radio" name="option" value="hName"onclick="keyPressed()"> Home
-  </label>
-  
-  <label class="radio-option">
-    <input type="radio" name="option" value="hNo"onclick="keyPressed()"> No
-  </label>
-</div>
-<div class="searchInput">
-<input type="text" placeholder="Name" id="name"autocomplete="off">
-<input type="text" placeholder="Search In Search:" id="house"autocomplete="off">
-</div>
 <P id="counter"></P>
 </div>
 
@@ -44,105 +69,9 @@
 
 
 
-
+<link rel="stylesheet" href="CSS_DBSearch.css">
 <script  src="dbSearch.js"></script>
 
-<style>
-@font-face {
-    font-family: karthika;
-    src: url(malfont.ttf);
-  }
-
-  button {
-    
-    border-radius: 8px;
-  background-color: white;
-    color: #3498db;
-  border: 1px solid #3498db;
-  font-weight: bold;
-  cursor: pointer;
-  
-  }
-  label{
-    text-align: center;
-    transition: transform 0.7s ease;
-
-  }
-  label:hover{
-    background-color: rgb(208, 255, 0);
-    color: rgb(58, 39, 4);
-    cursor: pointer;
-    transform: scale(1.25);
-    transition-duration: 0.3s;
-}
-#container{
-  padding:10px;
-  margin:auto;
-  margin-top: 15px;
-  width:fit-content;
-  border: 1px #3498db solid;
-}
-#title{
-
-
-margin:auto;
-width: fit-content;
-border-bottom: 2px solid sandybrown;
-
-
-}
-#counter{
-
-margin: 1px;
-cursor: default;
-
-}
-.searchInput{
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-
-
-}
-
-#excel-file {
-            display: none;
-        }
-
-
-        .custom-file-input {
-          margin: 10px;
-            display: inline-block;
-            padding: 5px 7px;
-            font-size: 14px;
-            cursor: pointer;
-            border: 1px solid #3498db;
-            color: #3498db;
-            border-radius: 10px;
-            background-color: #fff;
-        }
-
-input, #nameautocomplete-list{
-  
-margin: 10px;
-
-}
-#name, #house{
-  border-radius: 4px;
-  border: 1px solid #3498db;
-  width:115px; 
-  height:16px
-}
-p{
-
-  cursor: pointer;
-}
-
-
-
-</style>
 
 
 </html>
