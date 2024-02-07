@@ -1,4 +1,3 @@
-document.body.style.fontFamily = 'Arial, sans-serif';
 const fileInput = document.getElementById("excel-file");
     var resultArr=[];
     const pName=[];
@@ -6,7 +5,9 @@ const fileInput = document.getElementById("excel-file");
     const hNo=[];
     const mNo=[];
     const rName=[];
-    var lang="Eng"
+    const  datas=[1,pName,rName,hNo,hName,mNo]
+    var tHeader=[ "No","Name","Relative","HNo","House","Mob:" ]
+ 
     const inputBox=document.getElementById("name");
     const inputHome=document.getElementById("house");
     const counter=document.getElementById("counter");
@@ -16,8 +17,8 @@ const fileInput = document.getElementById("excel-file");
   var myButton = document.getElementById("myButton");
   const fileLabel = document.getElementById('file-label');
   const mainDiv=document.getElementById('container');
-  inputBox.style.display = 'none';
-  inputHome.style.display = 'none';
+  inputBox.disabled = true;
+  inputHome.disabled=true;
   inputBox.addEventListener("input", function(e) { keyPressed();})
   inputHome.addEventListener("input", function(e) {subSearch();  }) 
     
@@ -31,7 +32,7 @@ const fileInput = document.getElementById("excel-file");
         
         var arr= getSelectedArray();
         
-        var a = makeDiveForOutPut()
+        var a = makeTableForOutPut()
        
        var totalFound=0;
        resultArr=[];
@@ -57,7 +58,7 @@ function subSearch(){
 
      var totalFound = 0;
      var val2=inputHome.value;
-     var a =  makeDiveForOutPut();
+     var a =  makeTableForOutPut();
     
 
      resultArr.forEach(function (element) {
@@ -75,14 +76,30 @@ if(!val2){keyPressed()}
      })// forEach result arr End 
                     }// sub search end heare
 
-function makeDiveForOutPut(){
+function makeTableForOutPut(){
 
- var a = document.createElement("DIV");    
-  a.setAttribute("class", "autocomplete-items");
+  var table = document.createElement("table");
   
-  if(lang=="Mal") { a.style.fontFamily = 'karthika'};
-  mainDiv.appendChild(a);
-  return a;
+  table.setAttribute("class", "autocomplete-items");
+  //var theader = document.createElement('thead');
+    //var headerRow = document.createElement('tr');
+  var tbody=document.createElement('tbody');
+  
+  mainDiv.appendChild(table);
+
+ 
+
+ // tHeader.forEach(element=> {
+  //  var th = document.createElement('th');
+
+  //  th.textContent = element;
+  //  headerRow.appendChild(th);})
+
+
+//theader.appendChild(headerRow);
+//table.appendChild(theader);
+table.appendChild(tbody);
+  return tbody;
 
 }
 
@@ -91,11 +108,26 @@ function makeDiveForOutPut(){
 function createOutput(a,i,totalFound){
 
 
- var b = document.createElement("p");
-  b.innerHTML = (1+i)+' '+pName[i]+" - ( "+ rName[i] +" ) "+"_ "+
-hNo[i]+" _ "+hName[i]+' _'+ "Mob:"+mNo[i];
+ var tr = document.createElement("tr");
+
+datas.forEach(element=>{
+  var td= document.createElement('td');
+
+if(element==1){ td.textContent = 1+i;  }
+ else{ td.textContent = element[i];}
+
+tr.appendChild(td);
+
+
+
+})
+
+ // b.innerHTML = (1+i)+' '+pName[i]+" - ( "+ rName[i] +" ) "+"_ "+
+//hNo[i]+" _ "+hName[i]+' _'+ "Mob:"+mNo[i];
+
 a.style.display="block";
-a.appendChild(b);
+
+a.appendChild(tr);
     
     counter.innerHTML= "Total Found: "+totalFound
 }
@@ -118,11 +150,11 @@ a.appendChild(b);
     rName.length=0;
     const file = fileInput.files[0]; 
   if (file) {
-    inputBox.style.display = 'block';
-    inputHome.style.display = 'block';
+   
     inputBox.disabled = false;
+    inputHome.disabled=false;
     fileLabel.textContent = fileInput.files[0].name.replace(/\.[^/.]+$/, '');
-    fileLabel.style.backgroundColor="#3498db";
+    fileLabel.style.backgroundColor="rgb(82 95 98)";
     fileLabel.style.color="white";
       const reader = new FileReader();
       reader.onload = function(e) {
@@ -182,25 +214,7 @@ a.appendChild(b);
 }// check file end
 
  
-        function toMalayalam() {
-          const textToChange = document.getElementById('nameautocomplete-list');
-          
-            if (lang=="Eng") {lang="Mal";myButton.innerHTML = "Eng";
-               
-               if(textToChange){ textToChange.style.fontFamily = 'karthika';
-                                  textToChange.style.fontSize="22px"}
-                inputBox.style.fontFamily='karthika';
-               
-                inputBox.placeholder="-t]cv :";
-                inputBox.style.fontSize=" 16px";
-            } else {lang="Eng";myButton.innerHTML = "Mal";
-                // Reset the font when the checkbox is unchecked
-                if(textToChange){ textToChange.style.fontFamily = 'Arial, sans-serif';
-                                  textToChange.style.fontSize="20px"}
-                inputBox.style.fontFamily='Arial, sans-serif';
-                inputBox.placeholder="Name:";
-                inputBox.style.fontSize=" 12px" }
-              }
+      
 
    function getSelectedArray(){
     var selectedRadioButton = document.querySelector('input[name="option"]:checked');
@@ -217,4 +231,8 @@ a.appendChild(b);
       
     } 
 
- 
+    function createTableHeaderCell(className, textContent) {
+      const th = document.createElement("th");
+      th.className = className;
+      th.textContent = textContent;
+      return th;}
