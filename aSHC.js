@@ -527,7 +527,7 @@ function checkFile(whoCalled){
                             dA4Bak,"test","true");
                             break;
 
-                            case"tcb"://തക്കാളി,മുളക്,വഴുതന
+                            case"tc"://തക്കാളി,മുളക്,വഴുതന
                             if (exData.OC <= 0.16) uooriya = 830;
                             else if (exData.OC <= 0.33) uooriya = 760;
                             else if (exData.OC <= 0.50) uooriya = 690;
