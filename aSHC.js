@@ -745,40 +745,40 @@ function checkFile(whoCalled){
 
 
                             case"ch"://ചീര
-                            if (exData.OC <= 0.16) uooriya = 665;
-                            else if (exData.OC <= 0.33) uooriya = 610;
-                            else if (exData.OC <= 0.50) uooriya = 550;
-                            else if (exData.OC <= 0.75) uooriya = 505;
-                            else if (exData.OC <= 1)    uooriya = 470;
-                            else if (exData.OC <= 1.25) uooriya =435;
-                            else if (exData.OC<= 1.50) uooriya = 405;
-                            else if (exData.OC<= 1.83) uooriya = 370;
-                            else if (exData.OC<= 2.16) uooriya =330;
-                            else  uooriya = 280;
+                            if (exData.OC <= 0.16) uooriya = 1110;
+                            else if (exData.OC <= 0.33) uooriya = 1020;
+                            else if (exData.OC <= 0.50) uooriya = 920;
+                            else if (exData.OC <= 0.75) uooriya = 840;
+                            else if (exData.OC <= 1)    uooriya = 790;
+                            else if (exData.OC <= 1.25) uooriya =730;
+                            else if (exData.OC<= 1.50) uooriya = 680;
+                            else if (exData.OC<= 1.83) uooriya = 620;
+                            else if (exData.OC<= 2.16) uooriya =550;
+                            else  uooriya = 470;
 
 
-                            if(exData.P <=3)      rajfos=1535;
-                            else if( exData.P <=6.5)   rajfos= 1400;
-                            else if( exData.P <=10)    rajfos= 1270;
-                            else if( exData.P <=13.5)  rajfos=1130;
-                            else if( exData.P <=17)    rajfos= 1000;
-                            else if( exData.P <=20.5)  rajfos= 850;
-                            else if( exData.P <=24)    rajfos=720;
-                            else if( exData.P <=27.5)  rajfos= 580;
-                            else if( exData.P <=30)    rajfos= 440;
-                            else if( exData.P <=34.5)  rajfos= 300;
+                            if(exData.P <=3)      rajfos=1280;
+                            else if( exData.P <=6.5)   rajfos= 1170;
+                            else if( exData.P <=10)    rajfos= 1060;
+                            else if( exData.P <=13.5)  rajfos=940;
+                            else if( exData.P <=17)    rajfos= 830;
+                            else if( exData.P <=20.5)  rajfos= 710;
+                            else if( exData.P <=24)    rajfos=600;
+                            else if( exData.P <=27.5)  rajfos= 480;
+                            else if( exData.P <=30)    rajfos= 370;
+                            else if( exData.P <=34.5)  rajfos= 250;
                             else rajfos=150;
         
-                                if(exData.K<=35)     mop=845;
-                            else if(exData.K<=75)    mop=770;
-                            else if(exData.K<=115)   mop=700;
-                            else if(exData.K<=155)   mop=620;
-                            else if(exData.K<=195)   mop=550;
-                            else if(exData.K<=235)   mop=470;
-                            else if(exData.K<=275)   mop=395;
-                            else if(exData.K<=315)   mop=315;
-                            else if(exData.K<=355)   mop=245;
-                            else  mop=165;
+                                if(exData.K<=35)     mop=425;
+                            else if(exData.K<=75)    mop=390;
+                            else if(exData.K<=115)   mop=355;
+                            else if(exData.K<=155)   mop=310;
+                            else if(exData.K<=195)   mop=280;
+                            else if(exData.K<=235)   mop=235;
+                            else if(exData.K<=275)   mop=200;
+                            else if(exData.K<=315)   mop=160;
+                            else if(exData.K<=355)   mop=125;
+                            else  mop=85;
 
 
                             addPara("hnf: Noc ",dA4Bak,"vila mousePointer","false");//ചീര
@@ -787,85 +787,128 @@ function checkFile(whoCalled){
                             break;
 
                             case"i"://ഇഞ്ചി
-                            if (exData.OC <= 0.16) uooriya = 665;
-                            else if (exData.OC <= 0.33) uooriya = 610;
-                            else if (exData.OC <= 0.50) uooriya = 550;
-                            else if (exData.OC <= 0.75) uooriya = 505;
-                            else if (exData.OC <= 1)    uooriya = 470;
-                            else if (exData.OC <= 1.25) uooriya =435;
-                            else if (exData.OC<= 1.50) uooriya = 405;
-                            else if (exData.OC<= 1.83) uooriya = 370;
-                            else if (exData.OC<= 2.16) uooriya =330;
-                            else  uooriya = 280;
+                            if (exData.OC <= 0.16) uooriya = 840;
+                            else if (exData.OC <= 0.33) uooriya = 760;
+                            else if (exData.OC <= 0.50) uooriya = 700;
+                            else if (exData.OC <= 0.75) uooriya = 640;
+                            else if (exData.OC <= 1)    uooriya = 600;
+                            else if (exData.OC <= 1.25) uooriya =580;
+                            else if (exData.OC<= 1.50) uooriya = 480;
+                            else if (exData.OC<= 1.83) uooriya = 460;
+                            else if (exData.OC<= 2.16) uooriya =420;
+                            else  uooriya = 360;
 
 
-                            if(exData.P <=3)      rajfos=1535;
-                            else if( exData.P <=6.5)   rajfos= 1400;
-                            else if( exData.P <=10)    rajfos= 1270;
-                            else if( exData.P <=13.5)  rajfos=1130;
-                            else if( exData.P <=17)    rajfos= 1000;
-                            else if( exData.P <=20.5)  rajfos= 850;
-                            else if( exData.P <=24)    rajfos=720;
-                            else if( exData.P <=27.5)  rajfos= 580;
-                            else if( exData.P <=30)    rajfos= 440;
-                            else if( exData.P <=34.5)  rajfos= 300;
-                            else rajfos=150;
+                            if(exData.P <=3)      rajfos=1280;
+                            else if( exData.P <=6.5)   rajfos= 1160;
+                            else if( exData.P <=10)    rajfos= 1060;
+                            else if( exData.P <=13.5)  rajfos=940;
+                            else if( exData.P <=17)    rajfos= 840;
+                            else if( exData.P <=20.5)  rajfos= 720;
+                            else if( exData.P <=24)    rajfos=600;
+                            else if( exData.P <=27.5)  rajfos= 480;
+                            else if( exData.P <=30)    rajfos= 360;
+                            else if( exData.P <=34.5)  rajfos= 240;
+                            else rajfos=50;
         
-                                if(exData.K<=35)     mop=845;
-                            else if(exData.K<=75)    mop=770;
-                            else if(exData.K<=115)   mop=700;
-                            else if(exData.K<=155)   mop=620;
-                            else if(exData.K<=195)   mop=550;
-                            else if(exData.K<=235)   mop=470;
-                            else if(exData.K<=275)   mop=395;
-                            else if(exData.K<=315)   mop=315;
-                            else if(exData.K<=355)   mop=245;
-                            else  mop=165;
+                                if(exData.K<=35)     mop=400;
+                            else if(exData.K<=75)    mop=380;
+                            else if(exData.K<=115)   mop=340;
+                            else if(exData.K<=155)   mop=300;
+                            else if(exData.K<=195)   mop=260;
+                            else if(exData.K<=235)   mop=220;
+                            else if(exData.K<=275)   mop=200;
+                            else if(exData.K<=315)   mop=160;
+                            else if(exData.K<=355)   mop=120;
+                            else  mop=80;
 
 
                             addPara("hnf: C©n ",dA4Bak,"vila mousePointer","false");//ഇഞ്ചി
-                            addPara("	Hcp slÎdn\\v 30 S¬ hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm slÎdn\\pw "+uooriya+ "Intem{Kmw hoXw bqdnb, " +rajfos+" Intem{Kmw hoXw knwKnÄ kq¸Àt^mkvt^äv,  " +mop+" Intem{Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw, ]IpXn s]m«mjpw ASnhfambpw ]IpXn bqdnb 2 amk¯n\\p tijhpw tNÀ¯psImSp¡pI.  _m¡n ]IpXn bqdnbbpw s]m«mjpw 4 amk¯n\\v tijhpw tNÀ¯psImSp¡pI.",
+                            addPara("	Hcp skân-\\v 120 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm skân-\\pw "+uooriya+ "{Kmw hoXw bqdnb, " +rajfos+"{Kmw hoXw knwKnÄ kq¸Àt^mkvt^äv,  " +mop+" {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw, ]IpXn s]m«mjpw ASnhfambpw ]IpXn bqdnb 2 amk¯n\\p tijhpw tNÀ¯psImSp¡pI.  _m¡n ]IpXn bqdnbbpw s]m«mjpw 4 amk¯n\\v tijhpw tNÀ¯psImSp¡pI.",
                             dA4Bak,"test","true");
                             break;
                             case"m"://മഞ്ഞൾ
-                            if (exData.OC <= 0.16) uooriya = 665;
-                            else if (exData.OC <= 0.33) uooriya = 610;
-                            else if (exData.OC <= 0.50) uooriya = 550;
-                            else if (exData.OC <= 0.75) uooriya = 505;
-                            else if (exData.OC <= 1)    uooriya = 470;
-                            else if (exData.OC <= 1.25) uooriya =435;
-                            else if (exData.OC<= 1.50) uooriya = 405;
-                            else if (exData.OC<= 1.83) uooriya = 370;
-                            else if (exData.OC<= 2.16) uooriya =330;
-                            else  uooriya = 280;
+                            if (exData.OC <= 0.16) uooriya = 340;
+                            else if (exData.OC <= 0.33) uooriya = 300;
+                            else if (exData.OC <= 0.50) uooriya =280;
+                            else if (exData.OC <= 0.75) uooriya = 260;
+                            else if (exData.OC <= 1)    uooriya = 240;
+                            else if (exData.OC <= 1.25) uooriya =220;
+                            else if (exData.OC<= 1.50) uooriya = 200;
+                            else if (exData.OC<= 1.83) uooriya = 180;
+                            else if (exData.OC<= 2.16) uooriya =160;
+                            else  uooriya = 140;
 
 
-                            if(exData.P <=3)      rajfos=1535;
-                            else if( exData.P <=6.5)   rajfos= 1400;
-                            else if( exData.P <=10)    rajfos= 1270;
-                            else if( exData.P <=13.5)  rajfos=1130;
-                            else if( exData.P <=17)    rajfos= 1000;
-                            else if( exData.P <=20.5)  rajfos= 850;
-                            else if( exData.P <=24)    rajfos=720;
-                            else if( exData.P <=27.5)  rajfos= 580;
-                            else if( exData.P <=30)    rajfos= 440;
-                            else if( exData.P <=34.5)  rajfos= 300;
-                            else rajfos=150;
+                            if(exData.P <=3)      rajfos=760;
+                            else if( exData.P <=6.5)   rajfos= 700;
+                            else if( exData.P <=10)    rajfos= 640;
+                            else if( exData.P <=13.5)  rajfos=560;
+                            else if( exData.P <=17)    rajfos= 500;
+                            else if( exData.P <=20.5)  rajfos= 420;
+                            else if( exData.P <=24)    rajfos=360;
+                            else if( exData.P <=27.5)  rajfos= 280;
+                            else if( exData.P <=30)    rajfos= 220;
+                            else if( exData.P <=34.5)  rajfos= 160;
+                            else rajfos=50;
         
-                                if(exData.K<=35)     mop=845;
-                            else if(exData.K<=75)    mop=770;
-                            else if(exData.K<=115)   mop=700;
-                            else if(exData.K<=155)   mop=620;
-                            else if(exData.K<=195)   mop=550;
-                            else if(exData.K<=235)   mop=470;
-                            else if(exData.K<=275)   mop=395;
-                            else if(exData.K<=315)   mop=315;
-                            else if(exData.K<=355)   mop=245;
-                            else  mop=165;
+                                if(exData.K<=35)     mop=480;
+                            else if(exData.K<=75)    mop=440;
+                            else if(exData.K<=115)   mop=400;
+                            else if(exData.K<=155)   mop=360;
+                            else if(exData.K<=195)   mop=320;
+                            else if(exData.K<=235)   mop=280;
+                            else if(exData.K<=275)   mop=240;
+                            else if(exData.K<=315)   mop=180;
+                            else if(exData.K<=355)   mop=140;
+                            else  mop=100;
 
 
                             addPara("hnf: a-ª-Ä- ",dA4Bak,"vila mousePointer","false");//മഞ്ഞൾ
-                            addPara("slÎdn\\v 40 S¬hoXw ]¨nehfw/It¼mÌv/NmWIs¸mSn F¶nh tNÀ¡pI.  a®v ]cntim[\\m^ew A\\pkcn¨v Hcp slÎdn\\v "+uooriya+ "Intem{Kmw bqdnb, " +rajfos+"Intem{Kmw knwKnÄkq¸À t^mkvt^äv,  " +mop+" Intem{Kmw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw ]IpXn s]m«mjpw ASnhfambn tNÀ¡pI.  aq¶nÂ c­v `mKw bqdnb 30 Znhk¯n\\v tijw tNÀ¡pI.  _m¡nbpÅ s]m«mjpw aq¶nÂ Hcp `mKw bqdnbbpw 60 Znhk¯n\\v tijw tNÀ¡mhp¶XmWv.",
+                            addPara("skân-\\v 160 Intem{KmwhoXw ]¨nehfw/It¼mÌv/NmWIs¸mSn F¶nh tNÀ¡pI.  a®v ]cntim[\\m^ew A\\pkcn¨v Hcp skân-\\v "+uooriya+ "{Kmw bqdnb,  " +rajfos+"{Kmw knwKnÄkq¸À t^mkvt^äv,  " +mop+" {Kmw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw ]IpXn s]m«mjpw ASnhfambn tNÀ¡pI.  aq¶nÂ c­v `mKw bqdnb 30 Znhk¯n\\v tijw tNÀ¡pI.  _m¡nbpÅ s]m«mjpw aq¶nÂ Hcp `mKw bqdnbbpw 60 Znhk¯n\\v tijw tNÀ¡mhp¶XmWv.",
+                            dA4Bak,"test","true");
+                            break;
+
+
+                            case"e"://ചേന 
+                            if (exData.OC <= 0.16) uooriya = 1100;
+                            else if (exData.OC <= 0.33) uooriya = 1000;
+                            else if (exData.OC <= 0.50) uooriya = 910;
+                            else if (exData.OC <= 0.75) uooriya = 835;
+                            else if (exData.OC <= 1)    uooriya = 780;
+                            else if (exData.OC <= 1.25) uooriya =720;
+                            else if (exData.OC<= 1.50) uooriya = 670;
+                            else if (exData.OC<= 1.83) uooriya = 610;
+                            else if (exData.OC<= 2.16) uooriya =540;
+                            else  uooriya = 465;
+
+
+                            if(exData.P <=3)      rajfos=1280;
+                            else if( exData.P <=6.5)   rajfos= 1170;
+                            else if( exData.P <=10)    rajfos= 1060;
+                            else if( exData.P <=13.5)  rajfos=940;
+                            else if( exData.P <=17)    rajfos= 830;
+                            else if( exData.P <=20.5)  rajfos= 710;
+                            else if( exData.P <=24)    rajfos=600;
+                            else if( exData.P <=27.5)  rajfos= 480;
+                            else if( exData.P <=30)    rajfos= 370;
+                            else if( exData.P <=34.5)  rajfos= 250;
+                            else rajfos=150;
+        
+                                if(exData.K<=35)     mop=1180;
+                            else if(exData.K<=75)    mop=1170;
+                            else if(exData.K<=115)   mop=1060;
+                            else if(exData.K<=155)   mop=940;
+                            else if(exData.K<=195)   mop=830;
+                            else if(exData.K<=235)   mop=710;
+                            else if(exData.K<=275)   mop=600;
+                            else if(exData.K<=315)   mop=480;
+                            else if(exData.K<=355)   mop=370;
+                            else  mop=250;
+
+
+                            addPara("hnf: tN\\  ",dA4Bak,"vila mousePointer","false");//ചേന 
+                            addPara("	HcpIp-gn-bv¡v 2 Intem{Kmw  F¶ AfhnÂ Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡Ww.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm skân\\pw  "+uooriya+ " {Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  " +mop+" {Kmw  s]m«mjv F¶nhbpw -tNÀt¡ï-Xm-Wv .  ]IpXn bqdnbbpw, ]IpXn s]m«mjpw, apgph³ cmPvt^mkpw \\«v H¶camk¯n\\p tijhpw _m¡n ]IpXn bqdnbbpw ]IpXn s]m«mjpw BZy hf{]tbmKw Ignªp Hcpamk¯n\\p tijhpw tNÀ¯psImSp¡pI. ",
                             dA4Bak,"test","true");
                             break;
 
@@ -1065,6 +1108,7 @@ for (let i = 0; i <=5;  i++) {
 
 
 function  addPara(text, div, clsName,editSatus) {
+    editSatus="false";
     var p = document.createElement("p");
   
     p.className = clsName;
