@@ -63,12 +63,13 @@ function checkFile(whoCalled){
         
         
             if (whoCalled=="generateButton") {
-                var gvr= parseInt(startNumber.value);
+                var gvr= parseInt(startNumber.value);// parseInt function is used to convert a string into an integer
                 var gvrE=parseInt(endNumber.value);
                     if(gvr>=1&&gvrE<=totalRo&&gvrE>=gvr&& gvr<=totalRo)
                      {var totalRo = gvrE}//
                     else {var gvr =1}
-            for (let i=gvr; i <=totalRo;  i++) {// loop  according to Excel Row ----
+ //----------------------------loop depend on farmer number or selected card number-----------------------------------------------------------
+            for (let i=gvr; i <=totalRo;  i++) {
                    
                 const divA4 = createDiv("a4");
                 const dPageNo= createDiv("pageNo");
@@ -97,15 +98,17 @@ function checkFile(whoCalled){
         
                 const exData={};
                 let colNo=0;
-                exHead.forEach((element) => {
+//-------------------------------loop (27tims) acorrding to excel Heads like jilla,panchayath, Name,....ect---------------------------------------------------------------
+                
+                exHead.forEach((element) => {                  
                 const cell = worksheet[XLSX.utils.encode_cell({ r: i, c: colNo })];
                 var cellValue = cell ? cell.v : ""; // Use .v to get the raw value
                  if (colNo >= 9 && colNo <= 21&& typeof cellValue === 'number') 
                  {cellValue = cellValue.toFixed(2);}// fixing for two decimal
                 
                  exData[element] = cellValue;
-                colNo++ }); //xxxxxxxxxxxx loop for array elements End here
-              
+                colNo++ }); 
+//---------------------------loop according to excel head elements End here------------------------------------------------------------------------------            
                 
                 addPara("IÀjIsâ t]cv: " + exData.farmer, divFarmerL,"fL mousePointer","false");
                 addPara("hnemkw : " + exData.hName + ", " + exData.post, divFarmerL,"fL","false");
@@ -134,32 +137,34 @@ function checkFile(whoCalled){
                
                 var ph;
                 var phValues = {
-                    6.4: 135, 6.3: 270, 6.2: 405, 6.1: 540, 6: 675, 5.9: 810, 5.8: 945, 5.7: 1080, 5.6: 1215,
+                   6.5: 75, 6.4: 135, 6.3: 270, 6.2: 405, 6.1: 540, 6: 675, 5.9: 810, 5.8: 945, 5.7: 1080, 5.6: 1215,
                     5.5: 1350, 5.4: 1485, 5.3: 1620, 5.2: 1755, 5.1: 1890, 5: 2025, 4.9: 2160, 
                     4.8: 2295, 4.7: 2430, 4.6: 2665, 4.5: 2700, 4.4: 2835, 4.3: 2970, 4.2: 3105,
                     4.1: 3240, 4: 3375
                 };
-                
-                if (exData.ph <= 6.4) {
+               
+                if (exData.ph<= 6.5) {
         ph = phValues[parseFloat(exData.ph).toFixed(1)] || 3375;
        
-        addPara("]pfnckw ImWp¶XvsImïv skân\\v " + ph + 
-        " {Kmw hoXw Ip½mbw tNÀt¡ïXmWv. CXn\\p cïv BgvN¡vtijw am{Xw cmkhf{]tbmKw \\S¯pI.",
-         dA4Bak, "commonRec mousePointer", "true");}//കുമ്മായം 
-         if (exData.Cu<1){addPara("sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp G¡dn\\v 800 {Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
-         if (exData.Mg<120){addPara("aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp G¡dn\\v 32 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")}
-         if (exData.B<.5){addPara("t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp G¡dn\\v 4 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
-         if ( exData.Sa<5){addPara("kÄ^À A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn  Hcp G¡dn\\v kÄ^À s]mSn 10 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI",dA4Bak,"test","true")};
+        addPara("• ]pfnckw ImWp¶XvsImïv skân\\v "+ph+" {Kmw hoXw Ip½mbw tNÀt¡ïXmWv. CXn\\p cïv BgvN¡vtijw am{Xw cmkhf{]tbmKw \\S¯pI.",dA4Bak, "commonRec mousePointer", "true");}//കുമ്മായം 
+         if (exData.Cu<1){addPara("• sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp G¡dn\\v 800 {Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
+         if (exData.Mg<120){addPara("• aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp G¡dn\\v 32 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")}
+         if (exData.B<.5){addPara("• t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp G¡dn\\v 4 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
+         if ( exData.Sa<5){addPara("• kÄ^À A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn  Hcp G¡dn\\v kÄ^À s]mSn 10 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI",dA4Bak,"test","true")};
         
-         if (  exData.Zn<1){addPara("kn¦v A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn kn¦v kÂt^äv Hcp G¡dn\\v 8 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")};
+         if (  exData.Zn<1){addPara("• kn¦v A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn kn¦v kÂt^äv Hcp G¡dn\\v 8 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")};
         
                 const vila=[exData.c1,exData.c2,exData.c3,exData.c4,exData.c5];
-                var uooriya; var rajfos; var mop;
-                vila.forEach(element => {  
+                var uooriya; var rajfos; var mop; var vilaSlNo=0;
+               if( vila.includes('w')){console.log("it present vegitable in farmer:  "+ exData.farmer)};
+
+ //-----------------loop according to crop array named vila----------------------------------------------------------------------               
+                vila.forEach(element => { 
+                   
                 switch(element){
                        
                         case "r":
-                                
+                            vilaSlNo++; 
                                  if (exData.OC <= 0.16) uooriya = 250;
                             else if (exData.OC <= 0.33) uooriya = 230;
                             else if (exData.OC <= 0.50) uooriya = 210;
@@ -203,7 +208,7 @@ function checkFile(whoCalled){
                             
                             break;
                             case"c":
-
+                            vilaSlNo++; 
 
                             if (exData.OC <= 0.16) uooriya = 960;
                             else if (exData.OC <= 0.33) uooriya = 875;
@@ -249,6 +254,7 @@ function checkFile(whoCalled){
         
                            
                             case"a":
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 280;
                             else if (exData.OC <= 0.33) uooriya = 260;
                             else if (exData.OC <= 0.50) uooriya = 230;
@@ -288,6 +294,7 @@ function checkFile(whoCalled){
                             break;
         
                             case"n":
+                            vilaSlNo++; 
 
                             if (exData.OC <= 0.16) uooriya = 1400;
                             else if (exData.OC <= 0.33) uooriya = 1290;
@@ -328,6 +335,7 @@ function checkFile(whoCalled){
                             break;
 
                             case"b":
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 280;
                             else if (exData.OC <= 0.33) uooriya = 260;
                             else if (exData.OC <= 0.50) uooriya = 230;
@@ -368,6 +376,7 @@ function checkFile(whoCalled){
                             break;
                          
                             case"p":
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 140;
                             else if (exData.OC <= 0.33) uooriya = 130;
                             else if (exData.OC <= 0.50) uooriya = 115;
@@ -407,6 +416,7 @@ function checkFile(whoCalled){
                            
                             break;
                             case"bb":
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 536;
                             else if (exData.OC <= 0.33) uooriya = 490;
                             else if (exData.OC <= 0.50) uooriya = 440;
@@ -447,6 +457,7 @@ function checkFile(whoCalled){
                             break;
 
                             case"rr":
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 207;
                             else if (exData.OC <= 0.33) uooriya = 190;
                             else if (exData.OC <= 0.50) uooriya = 172;
@@ -486,6 +497,7 @@ function checkFile(whoCalled){
                             break;
                             
                             case"t"://കൊള്ളി 
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 555;
                             else if (exData.OC <= 0.33) uooriya = 510;
                             else if (exData.OC <= 0.50) uooriya = 460;
@@ -528,6 +540,7 @@ function checkFile(whoCalled){
                             break;
 
                             case"tc"://തക്കാളി,മുളക്,വഴുതന
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 830;
                             else if (exData.OC <= 0.33) uooriya = 760;
                             else if (exData.OC <= 0.50) uooriya = 690;
@@ -572,6 +585,7 @@ function checkFile(whoCalled){
 
 
                             case"v"://വെണ്ട
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 555;
                             else if (exData.OC <= 0.33) uooriya = 510;
                             else if (exData.OC <= 0.50) uooriya = 460;
@@ -616,6 +630,7 @@ function checkFile(whoCalled){
 
 
                             case"cu"://വെള്ളരിവർഗം
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 768;
                             else if (exData.OC <= 0.33) uooriya = 700;
                             else if (exData.OC <= 0.50) uooriya = 635;
@@ -652,13 +667,14 @@ function checkFile(whoCalled){
                             else  mop=200;
 
 
-                            addPara("hnf: a¯³/shÅcn/]Shew/]mhÂ/tImhÂ/Ip¼fw: ",dA4Bak,"vila mousePointer","false");//വെള്ളരിവർഗം
+                            addPara("hnf: a¯³/shÅcn/]Shew/]mhÂ/tImhÂ/Ip¼fw ",dA4Bak,"vila mousePointer","false");//വെള്ളരിവർഗം
                             addPara("	Hmtcm skân\\pw 80 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI. ]cntim[\\^ew A\\pkcn¨v, Hmtcm skân\\pw "+ uooriya+"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv, " +mop+ " {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww. ]IpXn bqdnbbpw, apgph³ cmPvt^mkpw, apgph³ s]m«mjpw ASnhfambpw, _m¡n ]IpXn bqdnb 2 BgvNs¯ CSthfIfnÂ ]e XhWIfmbpw tNÀ¯psImSp¡pI.	",
                             dA4Bak,"test","true");
                             break;
 
 
                             case"pr"://പയർ
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 218;
                             else if (exData.OC <= 0.33) uooriya = 200;
                             else if (exData.OC <= 0.50) uooriya = 180;
@@ -701,6 +717,7 @@ function checkFile(whoCalled){
                             break;
 
                             case"ku"://കൂർക്ക
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 665;
                             else if (exData.OC <= 0.33) uooriya = 610;
                             else if (exData.OC <= 0.50) uooriya = 550;
@@ -745,6 +762,7 @@ function checkFile(whoCalled){
 
 
                             case"ch"://ചീര
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 1110;
                             else if (exData.OC <= 0.33) uooriya = 1020;
                             else if (exData.OC <= 0.50) uooriya = 920;
@@ -787,6 +805,7 @@ function checkFile(whoCalled){
                             break;
 
                             case"i"://ഇഞ്ചി
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 840;
                             else if (exData.OC <= 0.33) uooriya = 760;
                             else if (exData.OC <= 0.50) uooriya = 700;
@@ -828,6 +847,7 @@ function checkFile(whoCalled){
                             dA4Bak,"test","true");
                             break;
                             case"m"://മഞ്ഞൾ
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 340;
                             else if (exData.OC <= 0.33) uooriya = 300;
                             else if (exData.OC <= 0.50) uooriya =280;
@@ -871,6 +891,7 @@ function checkFile(whoCalled){
 
 
                             case"e"://ചേന 
+                            vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 1100;
                             else if (exData.OC <= 0.33) uooriya = 1000;
                             else if (exData.OC <= 0.50) uooriya = 910;
@@ -920,14 +941,15 @@ function checkFile(whoCalled){
             
             
             
-            });// array vila each elment End
-                
+            });
+            
+ //-----------------End----loop according to crop array named vila-------------------------------------------------------------              
          
         
         var slNo=0;i
         var unit="";
         var falam="";
-        var manam;//manadhandam
+        var manam;//മാനദണ്ഡം
         var nilavaram= ""
         soilContents.forEach(element => {  
             
@@ -937,10 +959,10 @@ function checkFile(whoCalled){
                 case 1:
                      unit="";
                      falam=exData.ph;
-                     manam= "Aavfw : < 6.5  , \\nÀÆocyw: 6.6 þ 7.3 , -£mcw: > 7.4";
-                     if(falam>=7.4){nilavaram="£mcw"};
-                     if(falam<=7.3){nilavaram="\\nÀÆocyw"};
-                     if (falam<=6.5) {nilavaram="Aavfw"};
+                     manam= "Aavfw : < 6.5  , \\nÀÆocyw: 6.5 þ 7.3 , -£mcw: > 7.4";
+                     if(falam>=7.4){nilavaram="£mcw"};//ക്ഷാരം 
+                     if(falam<=7.3){nilavaram="\\nÀÆocyw"};//നിർവീര്യം 
+                     if (falam<=6.5) {nilavaram="Aavfw"};//അമ്ലം  
                      break;
                 
                 case 2:
@@ -1055,8 +1077,8 @@ function checkFile(whoCalled){
                        divResult.appendChild(divFarmerR);
                        divResult.appendChild(table);
                        divContainer.appendChild(dA4Bak);
-            } // End  loop  according to Excel Row ---- End
-        
+            } 
+//--------------------------End--loop depend on farmer number or selected card number End-----------------------------------------------   
         
             printButten.disabled = false;
             refreshButten.disabled = false;
