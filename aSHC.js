@@ -8,7 +8,7 @@ const soilContents  =
 " e`y-amb aáojyw",
 "  e`y-amb kÄ^À",
 "  e`y-amb Ccp¼v ",
-"  e`y-amb amwK-\okv ",
+"  e`y-amb amwK-\\okv ",
 " e`y-amb kn¦v ",
 "  e`y-amb sN¼v ",
 " e`y-amb t_mtdm¬ "];
@@ -17,18 +17,22 @@ const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea
                 "ph","Ec","OC","P","K","Ca","Mg","Sa","Fe","Mn","Zn","Cu","B","c1","c2","c3","c4","c5"];
 
                     const footDiv= document.getElementById("printBDiv");
-                    const createButten = document.getElementById("createB");
+                    
                     const printButten = document.getElementById("printB");
+                    const listBtn= document.getElementById("listB");
                     const refreshButten= document.getElementById("refreshB");
                     const totalCards= document.getElementById("totalCards");
                     const enterButton=document.getElementById("createB");
                     var divContainer = document.getElementById("papper");
                     const fileInput = document.getElementById("excel-file");
-                    const displayDiv=document.getElementById("displayDiv");
+                    //const displayDiv=document.getElementById("displayDiv");
                     const numberIn=document.getElementById("numberIn");
                     const startNumber= document.getElementById("startNumber");
                     const endNumber= document.getElementById("endNumber");
+                    const checkBtn= document.getElementById("CheckList");
                    printButten.disabled = true;
+                  // checkBtn.disabled=true;
+                  // checkBtn.style.opacity=0;
                    printButten.style.opacity = 0;
                     
                     refreshButten.disabled = true;
@@ -37,9 +41,10 @@ const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea
                     enterButton.disabled=true;
                     enterButton.style.opacity=0;
                   
-                        
+                    listBtn.disabled=true;
+                    listBtn.style.opacity=0;
                     
-function checkFile(whoCalled){
+function checkFile(btnName){
 
   gRefresh();
   
@@ -62,25 +67,33 @@ function checkFile(whoCalled){
         
         
         
-            if (whoCalled=="generateButton") {
-                var gvr= parseInt(startNumber.value);// parseInt function is used to convert a string into an integer
+            if (btnName=="cards"||btnName=="list") {
+                var gvr= parseInt(startNumber.value);// (parseInt) function is used to convert a string into an integer
                 var gvrE=parseInt(endNumber.value);
                     if(gvr>=1&&gvrE<=totalRo&&gvrE>=gvr&& gvr<=totalRo)
                      {var totalRo = gvrE}//
                     else {var gvr =1}
- //----------------------------loop depend on farmer number or selected card number-----------------------------------------------------------
-            for (let i=gvr; i <=totalRo;  i++) {
+           
+ 
+ const divFinal= createDiv("conclutionA4");//creating div for checklist
+ const tableFinal=document.createElement("table");//creating table for farmer list
+
+
+//--L1 start--------------------------loop depend on farmer number or selected card number-----------------------------------------------------------
+
+ for (let i=gvr; i <=totalRo;  i++) {
                    
-                const divA4 = createDiv("a4");
-                const dPageNo= createDiv("pageNo");
-                const dA4Bak = createDiv("a4Bak");
+                const divA4 = createDiv("a4");//result frond page
+                const dPageNo= createDiv("pageNo");//water mark of card number
+                const dA4Bak = createDiv("a4Bak");//result bak page
                 const divResult = createDiv("result");
                 const divFarmerL = createDiv("farmerDetailsL");
                 const divFarmerR = createDiv("farmerDetailsR");
                         
-                        var table = document.createElement("table");
+                        var table = document.createElement("table");//for result entry
                         var trH = document.createElement("tr");
-        
+                        var ftr=document.createElement("tr");// for final table
+                        
                         const tableHeadData = [
                             { className: "slNo", textContent: "{Ia  \\\w" },
                             { className: "blank", textContent: "" },
@@ -98,18 +111,26 @@ function checkFile(whoCalled){
         
                 const exData={};
                 let colNo=0;
-//-------------------------------loop (27tims) acorrding to excel Heads like jilla,panchayath, Name,....ect---------------------------------------------------------------
+//--L1(L1)-Start----------------------------loop (27tims) acorrding to excel colum like jilla,panchayath, Name,....ect---------------------------------------------------------------
                 
                 exHead.forEach((element) => {                  
                 const cell = worksheet[XLSX.utils.encode_cell({ r: i, c: colNo })];
                 var cellValue = cell ? cell.v : ""; // Use .v to get the raw value
-                 if (colNo >= 9 && colNo <= 21&& typeof cellValue === 'number') 
-                 {cellValue = cellValue.toFixed(2);}// fixing for two decimal
+                 
+                    if (colNo >= 9 && colNo <= 21&& typeof cellValue === 'number') 
+                    {cellValue = cellValue.toFixed(2);}// fixing for two decimal
+                   
+                    exData[element] = cellValue;
+                   colNo++
+
+
+                 
+                 });  //gives all data in a (i)th row  as  exData 
+//--L1(L1) End-------------------------loop according to excel colum  End here------------------------------------------------------------------------------            
                 
-                 exData[element] = cellValue;
-                colNo++ }); 
-//---------------------------loop according to excel head elements End here------------------------------------------------------------------------------            
-                
+
+
+  //  addPara( exData.farmer+" - "+exData.hName+ exData.post, divFinal,"allFarmerList","false");
                 addPara("IÀjIsâ t]cv: " + exData.farmer, divFarmerL,"fL mousePointer","false");
                 addPara("hnemkw : " + exData.hName + ", " + exData.post, divFarmerL,"fL","false");
                 addPara("]©mb¯v : " + exData.pancha, divFarmerL,"fL mousePointer","false");
@@ -155,15 +176,26 @@ function checkFile(whoCalled){
          if (  exData.Zn<1){addPara("• kn¦v A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn kn¦v kÂt^äv Hcp G¡dn\\v 8 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")};
         
                 const vila=[exData.c1,exData.c2,exData.c3,exData.c4,exData.c5];
-                var uooriya; var rajfos; var mop; var vilaSlNo=0;
-               if( vila.includes('w')){console.log("it present vegitable in farmer:  "+ exData.farmer)};
+               
+                const regex = /\d+/g; // Regular expression to match digits
+                const tScode = exData.sCode.match(regex); // Extract all number parts
 
- //-----------------loop according to crop array named vila----------------------------------------------------------------------               
+
+                const fTableData=[exData.farmer,exData.hName,exData.post,tScode,exData.survey]
+
+ var ftr2 = createFinalTable(fTableData,ftr); 
+               
+                var uooriya; var rajfos; var mop; var vilaSlNo=0;
+               
+                
+
+//--Start--L1(L2)-------------loop according to (crop array) named vila-----and add recomentation -----------------------------------------------------------------               
                 vila.forEach(element => { 
                    
                 switch(element){
                        
                         case "r":
+                          
                             vilaSlNo++; 
                                  if (exData.OC <= 0.16) uooriya = 250;
                             else if (exData.OC <= 0.33) uooriya = 230;
@@ -199,7 +231,10 @@ function checkFile(whoCalled){
                             else if(exData.K<=355)   mop=25;
                             else mop=20;
                            
-        
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "s\\Ãv";
+                            ftr2.appendChild(tempTd);
+
                             addPara("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//നെല്ല് 
                             addPara("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
                             dA4Bak,"test","true");
@@ -207,7 +242,7 @@ function checkFile(whoCalled){
                             dA4Bak,"test","true");
                             
                             break;
-                            case"c":
+                            case"c"://തെങ്ങ്var
                             vilaSlNo++; 
 
                             if (exData.OC <= 0.16) uooriya = 960;
@@ -243,7 +278,9 @@ function checkFile(whoCalled){
                             else if(exData.K<=355)   mop=400;
                             else mop=270;
 
-
+                           var tempTd = document.createElement('td');
+                            tempTd.textContent = "sX§v";
+                            ftr2.appendChild(tempTd);
 
                             addPara("hnf: sX§v ",dA4Bak,"vila mousePointer","false");//തെങ്ങ്
                             addPara("Hmtcm sX§n\\pw 15 apXÂ 25 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯psImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh tNÀt¡ïXmWv. hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.",
@@ -288,6 +325,12 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=110;
                             else if(exData.K<=355)   mop=80;
                             else  mop=55;
+
+
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "Ihp§v";
+                            ftr2.appendChild(tempTd);
+
                             addPara("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//കവുങ്ങ് 
                             addPara("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
                             dA4Bak,"test","true");
@@ -329,6 +372,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=770;
                             else if(exData.K<=355)   mop=590;
                             else  mop=400;
+
+
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "PmXn";
+                            ftr2.appendChild(tempTd);
+
+                           
                             addPara("hnf: PmXn ",dA4Bak,"vila mousePointer","false");//ജാതി
                             addPara("Hmtcm PmXn ac¯n\\pw hÀj¯nÂ Hcn¡Â 50 Intem{Kmw hoXw ]¨nehfw/ Imenhfw/It¼mÌv F¶nh tNÀ¯psImSp¡p¶Xv DNnXamWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm ac¯n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +"{Kmw hoXw s]m«mjv F¶nh hÀj¯nÂ Hcn¡Â tNÀ¡pI  ",
                             dA4Bak,"test","true");
@@ -369,6 +419,12 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=310;
                             else if(exData.K<=355)   mop=235;
                             else  mop=160;
+
+
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "hmg";
+                            ftr2.appendChild(tempTd);
+
                             addPara("hnf: hmg ",dA4Bak,"vila mousePointer","false");//വാഴ
                             addPara("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +" {Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
                             dA4Bak,"test","true");
@@ -410,6 +466,11 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=115;
                             else if(exData.K<=355)   mop=90;
                             else  mop=60;
+
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "Ip-:ap-f-Iv";
+                            ftr2.appendChild(tempTd);
+
                             addPara("hnf: IpcpapfIv ",dA4Bak,"vila mousePointer","false");//കുരുമുളക് 
                             addPara("Hmtcm sNSn¡pw 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¡mw.  ]cntim[\\m ^ew A\\pkcn¨v IpcpapfIv sNSn H¶n\\v " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh Xpey XhWIfmbn sabvþPq¬, HmKÌvþsk]väw_À amk§fnÂ tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
@@ -450,6 +511,11 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=230;
                             else if(exData.K<=355)   mop=180;
                             else  mop=120;
+
+                           var tempTd = document.createElement('td');
+                            tempTd.textContent = "t\\{´";
+                            ftr2.appendChild(tempTd);
+                            
                             addPara("hnf: t\\{´hmg ",dA4Bak,"vila mousePointer","false");//നേന്ത്ര 
                             addPara("hmg H¶n\\v 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcmhmg¡pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv, "+mop+ " {Kmw hoXw s]m«mjv F¶nh 6 XhWIfmbnþ\\«v 1, 2, 3, 4, 5 amk§Ä¡v tijhpwIpe h¶ DSt\\bpw tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
@@ -491,6 +557,12 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=60;
                             else if(exData.K<=355)   mop=46;
                             else  mop=31;
+                            
+                           var tempTd = document.createElement('td');
+                            tempTd.textContent = "d-º-À-";
+                            ftr2.appendChild(tempTd);
+                            
+                            
                             addPara("hnf: d-º-À-",dA4Bak,"vila mousePointer","false");//റബ്ബർ
                             addPara("Hcp sNSn¡v  " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " knwKnÄ kq¸Àt^mkvt^äpw, "+mop+ " {Kmw s]m«mjpw AS§p¶ an{inXw hÀj¯nÂ Hcp XhWbmtbm (G{]nÂþsabvamk¯nÂ) AsÃ¦nÂ c-ïp-  XhWIfmbn (G{]nÂþsabv, sk]väw_ÀþHtÎm_À amk¯nÂ)  tNÀ¯psImSp¡pI.",
                             dA4Bak,"test","true");
@@ -532,6 +604,12 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=160;
                             else if(exData.K<=355)   mop=125;
                             else  mop=85;
+                            
+                           var tempTd = document.createElement('td');
+                            tempTd.textContent = "-sImÅn-";
+                            ftr2.appendChild(tempTd);
+                            
+                            
 
 
                             addPara("hnf: a-c-¨o-\\n- ",dA4Bak,"vila mousePointer","false");//കൊള്ളി 
@@ -575,6 +653,12 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=75;
                             else if(exData.K<=355)   mop=60;
                             else  mop=40;
+                            
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "X¡mfn";
+                            ftr2.appendChild(tempTd);
+                            
+                            
 
 
                             addPara("hnf: X¡mfn/apfIv/hgpX\\ ",dA4Bak,"vila mousePointer","false");//തക്കാളി,മുളക്,വഴുതന
@@ -620,6 +704,12 @@ function checkFile(whoCalled){
                             else if(exData.K<=315)   mop=80;
                             else if(exData.K<=355)   mop=62;
                             else  mop=42;
+                            
+                            var tempTd = document.createElement('td');
+                            tempTd.textContent = "-shï-";
+                            ftr2.appendChild(tempTd);
+                            
+                            
 
 
                             addPara("hnf: -shï-  ",dA4Bak,"vila mousePointer","false");//വെണ്ട
@@ -664,7 +754,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=480;
                             else if(exData.K<=315)   mop=385;
                             else if(exData.K<=355)   mop=295;
-                            else  mop=200;
+                            else  mop=200;;
+
+                           var tempTd = document.createElement('td');
+                            tempTd.textContent = "shÅcn";
+                            ftr2.appendChild(tempTd);
+                            
+                            
 
 
                             addPara("hnf: a¯³/shÅcn/]Shew/]mhÂ/tImhÂ/Ip¼fw ",dA4Bak,"vila mousePointer","false");//വെള്ളരിവർഗം
@@ -708,7 +804,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=35;
                             else if(exData.K<=315)   mop=30;
                             else if(exData.K<=355)   mop=20;
-                            else  mop=15;
+                            else  mop=15;;
+
+                            var tempTd = document.createElement('td');
+                             tempTd.textContent = "]bÀ";
+                             ftr2.appendChild(tempTd);
+                             
+                             
 
 
                             addPara("hnf: ]bÀ ",dA4Bak,"vila mousePointer","false");//പയർ
@@ -751,7 +853,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=395;
                             else if(exData.K<=315)   mop=315;
                             else if(exData.K<=355)   mop=245;
-                            else  mop=165;
+                            else  mop=165;;
+
+                            var tempTd = document.createElement('td');
+                             tempTd.textContent = "Iq-À-¡-";
+                             ftr2.appendChild(tempTd);
+                             
+                             
 
 
                             addPara("hnf: Iq-À-¡- ",dA4Bak,"vila mousePointer","false");//കൂർക്ക
@@ -796,7 +904,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=200;
                             else if(exData.K<=315)   mop=160;
                             else if(exData.K<=355)   mop=125;
-                            else  mop=85;
+                            else  mop=85;;
+
+                            var tempTd = document.createElement('td');
+                             tempTd.textContent = "Noc";
+                             ftr2.appendChild(tempTd);
+                             
+                             
 
 
                             addPara("hnf: Noc ",dA4Bak,"vila mousePointer","false");//ചീര
@@ -839,7 +953,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=200;
                             else if(exData.K<=315)   mop=160;
                             else if(exData.K<=355)   mop=120;
-                            else  mop=80;
+                            else  mop=80;;
+
+                            var tempTd = document.createElement('td');
+                             tempTd.textContent = "C©n";
+                             ftr2.appendChild(tempTd);
+                             
+                             
 
 
                             addPara("hnf: C©n ",dA4Bak,"vila mousePointer","false");//ഇഞ്ചി
@@ -881,7 +1001,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=240;
                             else if(exData.K<=315)   mop=180;
                             else if(exData.K<=355)   mop=140;
-                            else  mop=100;
+                            else  mop=100;;
+
+                            var tempTd = document.createElement('td');
+                             tempTd.textContent = "a-ª-Ä";
+                             ftr2.appendChild(tempTd);
+                             
+                             
 
 
                             addPara("hnf: a-ª-Ä- ",dA4Bak,"vila mousePointer","false");//മഞ്ഞൾ
@@ -925,7 +1051,13 @@ function checkFile(whoCalled){
                             else if(exData.K<=275)   mop=600;
                             else if(exData.K<=315)   mop=480;
                             else if(exData.K<=355)   mop=370;
-                            else  mop=250;
+                            else  mop=250;;
+
+                            var tempTd = document.createElement('td');
+                             tempTd.textContent = "tN\\ ";
+                             ftr2.appendChild(tempTd);
+                             
+                             
 
 
                             addPara("hnf: tN\\  ",dA4Bak,"vila mousePointer","false");//ചേന 
@@ -942,8 +1074,8 @@ function checkFile(whoCalled){
             
             
             });
-            
- //-----------------End----loop according to crop array named vila-------------------------------------------------------------              
+       
+//---End--L1(L2)----------------loop according to crop array named vila-------------------------------------------------------------              
          
         
         var slNo=0;i
@@ -951,6 +1083,7 @@ function checkFile(whoCalled){
         var falam="";
         var manam;//മാനദണ്ഡം
         var nilavaram= ""
+ // --start--L1(L3)--------Loop according SoilContents ----create result table data- -----------       
         soilContents.forEach(element => {  
             
              slNo ++;
@@ -1064,22 +1197,33 @@ function checkFile(whoCalled){
                     break;
                   
                 default:
-                   }//swithch End
+                   }
+                   //swithch End
         
         
- createTableRow(table,element,slNo,unit,falam,manam,nilavaram);     
-                                                                 })// soil contents loop end
-                        divContainer.appendChild(divA4);
+                createTableRow(table,element,slNo,unit,falam,manam,nilavaram);     
+                                                                 })
+//-----End--L1(L3)--------------------------------------------- soil contents loop end-----------
+                        
                         divA4.appendChild(dPageNo);
+                       
                         addPara(i,dPageNo,"pagenumber","false");
+                       
                         divA4.appendChild(divResult);
                         divResult.appendChild(divFarmerL);
                        divResult.appendChild(divFarmerR);
                        divResult.appendChild(table);
-                       divContainer.appendChild(dA4Bak);
+                      
+                       if(btnName=="cards"){ divContainer.appendChild(divA4);
+                                             divContainer.appendChild(dA4Bak) }
+                       tableFinal.appendChild(ftr2)
             } 
-//--------------------------End--loop depend on farmer number or selected card number End-----------------------------------------------   
-        
+//--L1 End ------------------------End--loop depend on farmer number or selected card number End-----------------------------------------------   
+            divFinal.appendChild(tableFinal)
+            
+            if(btnName=="list"){divContainer.appendChild(divFinal)}
+            
+            
             printButten.disabled = false;
             refreshButten.disabled = false;
             printButten.style.opacity = 1;  
@@ -1088,7 +1232,8 @@ function checkFile(whoCalled){
                
         
         }// if called by generater Button is end
-       else{  startNumber.value="";
+      
+        else{  startNumber.value="";
                 endNumber.value="" }
         
         } // On load function end here
@@ -1097,7 +1242,8 @@ function checkFile(whoCalled){
 
                     enterButton.disabled=false;
                     enterButton.style.opacity=1;
-
+                    listBtn.disabled=false;
+                    listBtn.style.opacity=1;
                     refreshButten.disabled = false;
                     refreshButten.style.opacity = 1;
                     footDiv.style.opacity=1;
@@ -1142,7 +1288,7 @@ function  addPara(text, div, clsName,editSatus) {
 
 
 function gRefresh(){
-    const elementsToRemove = document.querySelectorAll('.a4, .a4Bak');
+    const elementsToRemove = document.querySelectorAll('.a4, .a4Bak, .conclutionA4');
     elementsToRemove.forEach(function(element) {
         element.parentNode.removeChild(element); });
         printButten.disabled = true;
@@ -1156,5 +1302,15 @@ function createDiv(className) {
     return div;
   }
  
+  function createFinalTable(data, tr) {
+    
+    data.forEach(cellData => {
+        const ftd = document.createElement('td');
+        ftd.textContent = cellData;
+       
+        tr.appendChild(ftd);
+       
+    });
 
-
+    return tr; // If you need to return the modified tr element
+}
