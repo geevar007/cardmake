@@ -8,7 +8,7 @@
     <title>Card Gen</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
+    <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
    
 
 
@@ -17,15 +17,18 @@
 
 <div id="inputSection" class="noPrint titleDiv"> 
 
-<div class="oneByTwo">  <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()" /> </div>
-<div >  <button id="createB" onclick="checkFile('generateButton')"><i class="fa fa-cogs" aria-hidden="true"></i> Generate Cards</button></div>
-
+<div class="oneByTwo"> 
+   
+    <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"> 
+</div>
+<div >  <button id="createB" onclick="checkFile('cards')"><i class="fa fa-cogs" aria-hidden="true"></i> Gen: Cards</button></div>
+<div >  <button id="listB" onclick="checkFile('list')"><i class="fa fa-address-card-o" aria-hidden="true"></i></i> List</button></div>
 
 
 </div>
 <div class="noPrint toolsDiv" id="numberIn">
    <div>
-    <p  class="mousePointer" style = " font-size:16px;color: white">Card No :
+    <p  class="mousePointer" style = " font-size:16px;color: #442d1e;">Card No :
          <input type="number" id="startNumber" min="1" step="1" oninput="validity.valid||(value='')">   
          To Card No : <input type="number" id="endNumber" min="1" step="1" oninput="validity.valid||(value='')">
         
@@ -36,7 +39,7 @@
         <div>
             
         </div>
-        <div> <a href="Template.xlsx" download>
+        <div> <a href="https://geevar007.github.io/cardmaker/Template.xlsx" download>
             <button id="dwldButton" title="Download Template"><i class="fa fa-download" aria-hidden="true"></i>  Template</button>
         </a></div>
        
