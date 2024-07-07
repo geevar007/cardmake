@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: karthika;
     src: url("malfont.ttf") format("woff2");
@@ -8,11 +9,41 @@ body {
     margin: auto;
 }
 
+input[type="file"]::file-selector-button {
+  border-radius: 5px;
+  padding: 5px;
+ 
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  
+  transition: background-color 200ms;
+}
+/* file upload button hover state */
+input[type="file"]::file-selector-button:hover {
+  background-color: rgb(208, 255, 0);
+ 
+  
+  
+}
+
+/* file upload button active state */
+input[type="file"]::file-selector-button:active {
+  background-color: #e5e7eb;
+}
+
+
+
+
 .titleDiv {
   
 
     width:204mm;
-    background-color:rgb(80, 156, 255);
+    background-color: rgb(80, 156, 255);
+    
+  
+    background-position: center;
     padding :10px;
     margin:auto;
     display:flex;
@@ -54,7 +85,8 @@ input[type="number"] {
 }
   .toolsDiv{
     width:204mm;
-    background-color:rgb(80, 156, 255);
+    background-color: rgb(80, 156, 255);
+  
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     padding: 10px;
@@ -96,9 +128,9 @@ input[type="number"] {
 }
 
 
-.a4,.a4Bak {font-family: karthika, sans-serif; 
+.a4,.a4Bak{font-family: karthika, sans-serif; 
     width: 209mm;
-    height:295mm;
+    height:296mm;
     
     background-size: 100% 100%;
     position:relative;
@@ -110,6 +142,14 @@ input[type="number"] {
 
    .a4{
     background-image: url(frnd.jpg);
+    }
+    .conclutionA4{
+
+    
+      font-family: karthika, sans-serif;  
+
+
+
     }
 
   .pageNo{
@@ -200,6 +240,8 @@ width:10px;
     .noPrint{display:none}
     .pageNo{display:none}
     
+
+    
   
 }
 
@@ -216,7 +258,7 @@ button,  input {
   font-size: 14px;
 }
 
-button:hover,img:hover {
+button:hover,img:hover,label:hover {
  
  
   background-color:rgb(208, 255, 0);
@@ -260,4 +302,17 @@ cursor:default;
   font-weight: bold;
   font-size:16px;
 
+}
+.conclutionA4{
+padding-top: 2mm;
+padding-left:2mmpx;
+
+}
+.conclutionA4 td{
+  text-align: left;
+ height:.6cm;
+}
+.conclutionA4 table, .conclutionA4 td{
+
+  border: none;
 }
