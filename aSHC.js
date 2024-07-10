@@ -181,7 +181,7 @@ function checkFile(btnName){
                 const tScode = exData.sCode.match(regex); // Extract all number parts
 
 
-                const fTableData=[exData.farmer,exData.hName,exData.post,tScode,exData.survey]
+                const fTableData=[tScode,exData.farmer,exData.hName,exData.post,exData.survey]
 
  var ftr2 = createFinalTable(fTableData,ftr); 
                
