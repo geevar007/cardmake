@@ -237,17 +237,7 @@ p span {
   /* Font size and color for the span */
   font-size: 12px;
 }
-@media print {
-  .noPrint { display: none; }
-  .pageNo { display: none; }
-  
-  .conclutionA4 table, .conclutionA4 td { font-size:17px;border: none;}
-   .conclutionA4 td{
-    text-align: left;
-    height:.4cm;
-    }
-  
-}
+
 
 
 @page {
@@ -313,16 +303,53 @@ padding-top: 2mm;
 padding-left:2mm;
 
 }
-.conclutionA4 td{
-text-align: left;
-height:1cm;
-}
-.conclutionA4 table{
-font-size:30px;
-border: none;
-}
 
-.conclutionA4 tr:nth-child(even) {
+.conclutionA4 td{
+  text-align: left;
+  height:.4cm;
+  font-size:39px;
+  cursor: pointer;
+  }
+
+
+
+
+/* .conclutionA4 tr:nth-child(even) {
  
   background-color:  #dfdfdf;
+ 
+} */
+.highlighted {
+  background-color: rgba(10, 231, 10, 0.233);
+
 }
+.endDiv{
+
+width:100%;
+height:50px;
+background-color: #ffbf11;
+text-align: center;
+color: rgb(78, 53, 5);
+font-size: xx-large;
+padding-top: 10px;
+}
+
+
+
+@media print {
+  .noPrint { display: none; }
+  .pageNo { display: none; }
+  .endDiv{ display:none;}
+  
+  .conclutionA4 table{border: none;}
+   
+  .conclutionA4 td{
+   border: none;
+    text-align: left;
+    height:1mm;
+    font-size:15px;
+    }
+  
+}
+
+/* Last edited 11/Juy/24 */
