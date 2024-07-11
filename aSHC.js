@@ -1296,7 +1296,7 @@ function  addPara(text, div, clsName,editSatus) {
 
 
 function gRefresh(){
-    const elementsToRemove = document.querySelectorAll('.a4, .a4Bak, .conclutionA4');
+    const elementsToRemove = document.querySelectorAll('.a4, .a4Bak, .conclutionA4,.endDiv');
     elementsToRemove.forEach(function(element) {
         element.parentNode.removeChild(element); });
         printButten.disabled = true;
