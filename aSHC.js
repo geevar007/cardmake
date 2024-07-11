@@ -1315,16 +1315,10 @@ function createDiv(className) {
     data.forEach(cellData => {
         const ftd = document.createElement('td');
 
-        ftd.addEventListener('click', function() {
-
-
-            tr.classList.toggle('highlighted');
-
-           
-        });
+       
         ftd.textContent = cellData;
         
-        
+        tr.addEventListener('click', function() { tr.classList.toggle('highlighted') });
        
         tr.appendChild(ftd);
         
