@@ -1221,7 +1221,15 @@ function checkFile(btnName){
 //--L1 End ------------------------End--loop depend on farmer number or selected card number End-----------------------------------------------   
             divFinal.appendChild(tableFinal)
             
-            if(btnName=="list"){divContainer.appendChild(divFinal)}
+            if(btnName=="list"){divContainer.appendChild(divFinal);
+            
+            var endDiv=createDiv("endDiv");
+            endDiv.textContent="End";
+            divContainer.appendChild(endDiv)
+            
+            
+            
+            }
             
             
             printButten.disabled = false;
@@ -1303,12 +1311,23 @@ function createDiv(className) {
   }
  
   function createFinalTable(data, tr) {
-    
+   
     data.forEach(cellData => {
         const ftd = document.createElement('td');
+
+        ftd.addEventListener('click', function() {
+
+
+            tr.classList.toggle('highlighted');
+
+           
+        });
         ftd.textContent = cellData;
+        
+        
        
         tr.appendChild(ftd);
+        
        
     });
 
