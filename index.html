@@ -21,16 +21,16 @@
    
     <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"> 
 </div>
-<div >  <button id="createB" onclick="checkFile('cards')"><i class="fa fa-cogs" aria-hidden="true"></i> Gen: Cards</button></div>
-<div >  <button id="listB" onclick="checkFile('list')"><i class="fa fa-address-card-o" aria-hidden="true"></i></i> List</button></div>
+<div >  <button id="createB" onclick="checkFile('cards')" title="Generate Cards"><i class="fa fa-cogs" aria-hidden="true"></i> Gen: Cards</button></div>
+<div >  <button id="listB" onclick="checkFile('list')"title="Farmer list"><i class="fa fa-address-card-o" aria-hidden="true"></i></i> List</button></div>
 
 
 </div>
 <div class="noPrint toolsDiv" id="numberIn">
    <div>
     <p  class="mousePointer" style = " font-size:16px;color: #442d1e;">Card No :
-         <input type="number" id="startNumber" min="1" step="1" oninput="validity.valid||(value='')">   
-         To Card No : <input type="number" id="endNumber" min="1" step="1" oninput="validity.valid||(value='')">
+         <input type="number" id="startNumber" min="1" step="1" title="Enter First Entry No"oninput="validity.valid||(value='')">   
+         To Card No : <input type="number" id="endNumber" min="1" step="1"title="Enter Last Entry No:" oninput="validity.valid||(value='')">
         
          </p>
          
