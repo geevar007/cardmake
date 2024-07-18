@@ -15,9 +15,10 @@ const soilContents  =
 
 const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea","gps",
                 "ph","Ec","OC","P","K","Ca","Mg","Sa","Fe","Mn","Zn","Cu","B","c1","c2","c3","c4","c5"];
-
+                const slider = document.getElementById('slider');    
+                
                     const footDiv= document.getElementById("printBDiv");
-                    
+                    const fPannel=document.getElementById("fControl");
                     const printButten = document.getElementById("printB");
                     const listBtn= document.getElementById("listB");
                     const refreshButten= document.getElementById("refreshB");
@@ -38,6 +39,7 @@ const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea
                     refreshButten.disabled = true;
                     refreshButten.style.opacity = 0;
                     footDiv.style.opacity=0;
+                    fPannel.style.opacity=0;
                     enterButton.disabled=true;
                     enterButton.style.opacity=0;
                   
@@ -68,6 +70,7 @@ function checkFile(btnName){
         
         
             if (btnName=="cards"||btnName=="list") {
+                fPannel.style.opacity=0;
                 var gvr= parseInt(startNumber.value);// (parseInt) function is used to convert a string into an integer
                 var gvrE=parseInt(endNumber.value);
                     if(gvr>=1&&gvrE<=totalRo&&gvrE>=gvr&& gvr<=totalRo)
@@ -1222,11 +1225,12 @@ function checkFile(btnName){
             divFinal.appendChild(tableFinal)
             
             if(btnName=="list"){divContainer.appendChild(divFinal);
-            
+                
+               
             var endDiv=createDiv("endDiv");
             endDiv.textContent="End";
             divContainer.appendChild(endDiv)
-            
+            fPannel.style.opacity=1;
             
             
             }
@@ -1327,3 +1331,11 @@ function createDiv(className) {
 
     return tr; // If you need to return the modified tr element
 }
+slider.addEventListener('input', () => {
+    const conclutionA4 = document.querySelector('.conclutionA4');
+    const tableCells = conclutionA4.querySelectorAll('td');
+    const fontSize = slider.value + 'px';
+    tableCells.forEach(cell => {
+        cell.style.fontSize = fontSize;
+    });
+});
