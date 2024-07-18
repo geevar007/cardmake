@@ -252,6 +252,18 @@ border-radius: 5px;
 padding: 5px;
 font-size: 14px;
 }
+.zoom{
+
+
+  color:#5a4217
+
+
+}
+.zoom:hover{
+  
+color:#814e37
+
+}
 
 button:hover,img:hover,label:hover {
 
@@ -260,7 +272,7 @@ background-color:rgb(208, 255, 0);
 color: rgb(58, 39, 4);
 cursor: pointer;
 
-transform: scale(1.25);
+transform: scale(1.35);
 transition-duration: 0.3s;
 }
 
@@ -340,7 +352,7 @@ padding-top: 10px;
   .noPrint { display: none; }
   .pageNo { display: none; }
   .endDiv{ display:none;}
-  
+  #fControl{ display: none;}
   .conclutionA4 table{border: none;}
    
   .conclutionA4 td{
@@ -351,5 +363,26 @@ padding-top: 10px;
     }
   
 }
+
+#slider {
+  writing-mode: bt-lr; /* Vertical slider */
+  -webkit-appearance: slider-vertical;
+  width: 5px;
+  height: 200px;
+  
+}
+.fControl{
+  position: fixed;
+  top:39% ;
+  right:5%;
+width: 40px;
+border-radius: 8px;
+background-color: #ffbf11;
+display: flex;
+justify-content: center;
+}
+
+
+
 
 /* Last edited 11/Juy/24 */
