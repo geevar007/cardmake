@@ -16,7 +16,7 @@
 <body>
 
 <div id="inputSection" class="noPrint titleDiv"> 
-<a href="https://geevar007.github.io/clock/mySite.html"><i class="fa fa-home fa-lg" aria-hidden="true" title="Home"style="color: #455845"></i></a>
+<a href="https://geevar007.github.io/clock/mySite.html"><i class="fa fa-home fa-lg zoom" aria-hidden="true" title="Home"></i></a>
 <div class="oneByTwo"> 
    
     <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"> 
@@ -36,9 +36,7 @@
          
         </div>
 
-        <div>
-            
-        </div>
+       
         <div> <a href="https://geevar007.github.io/cardmaker/Template.xlsx" download>
             <button id="dwldButton" title="Download Template"><i class="fa fa-download" aria-hidden="true"></i>  Template</button>
         </a></div>
@@ -59,6 +57,16 @@
     <img id="printB" src="https://geevar007.github.io/glog/print.png" alt="Print" style="width: 42px;height:42px" title="Print"  onClick="window.print()">
     <p class="mousePointer"style = "font-size:16px;color: rgb(26, 23, 1);margin-top: 8px ">Total Cards: <span id="totalCards" style = "font-size:21px">-</span></p>
 </div>
+<div class="fControl" id="fControl">
+
+    <input type="range" id="slider" min="15" max="50" value="39" />
+
+
+
+</div>
+
+
+
 </body>
 
 <link rel="stylesheet" href="aSHC.css">
