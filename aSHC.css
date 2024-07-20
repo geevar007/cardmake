@@ -311,8 +311,9 @@ font-size:16px;
 
 }
 .conclutionA4{
-padding-top: 2mm;
-padding-left:2mm;
+  width: fit-content;
+  margin:auto;
+padding:2mm;
 
 }
 
@@ -337,13 +338,16 @@ padding-left:2mm;
 }
 .endDiv{
 
-width:100%;
-height:50px;
-background-color: #ffbf11;
+width:25%;
+height:5px;
+margin: auto;
+background-color: #bc8b49;
 text-align: center;
-color: rgb(78, 53, 5);
-font-size: xx-large;
-padding-top: 10px;
+color: white;
+font-size:small;
+
+
+
 }
 
 
@@ -364,25 +368,47 @@ padding-top: 10px;
   
 }
 
-#slider {
-  writing-mode: bt-lr; /* Vertical slider */
+/*.slider {
+  writing-mode: bt-lr; /* Vertical slider 
   -webkit-appearance: slider-vertical;
   width: 5px;
   height: 200px;
   
-}
+} */
 .fControl{
   position: fixed;
-  top:39% ;
-  right:5%;
-width: 40px;
-border-radius: 8px;
-background-color: #ffbf11;
+top:94%;
+  right: 13%;
+
 display: flex;
 justify-content: center;
 }
 
 
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
 
+  width: 323px; /* Full-width */
+  height: 1px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+
+
+
+  .slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  border-radius: 5px;
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
 
 /* Last edited 11/Juy/24 */
