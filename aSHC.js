@@ -94,8 +94,9 @@ function checkFile(btnName){
                 const divFarmerR = createDiv("farmerDetailsR");
                         
                         var table = document.createElement("table");//for result entry
+                        table.className= "resultTable";
                         var trH = document.createElement("tr");
-                        var ftr=document.createElement("tr");// for final table
+                        var ftr=document.createElement("tr");// for final table row
                         
                         const tableHeadData = [
                             { className: "slNo", textContent: "{Ia  \\\w" },
@@ -180,23 +181,29 @@ function checkFile(btnName){
         
                 const vila=[exData.c1,exData.c2,exData.c3,exData.c4,exData.c5];
                
-                const regex = /\d+/g; // Regular expression to match digits
-                const tScode = exData.sCode.match(regex); // Extract all number parts
-
-
-                const fTableData=[tScode,exData.farmer,exData.hName,exData.post,exData.survey]
-
- var ftr2 = createFinalTable(fTableData,ftr); 
+                let dVeg = ["tc", "pr", "v","ch","cu","e"];//  default vegitable
                
+               let addedVeg=[];//for adding vegtable 
+                //const regex = /\d+/g; // Regular expression to match digits
+                //const tScode = exData.sCode.match(regex); // Extract all number parts
+        
+        if (vila.includes("x")) { dVeg.forEach(item => {if (!vila.includes(item)){addedVeg.push(item); vila.push(item)} })}
+               
+              
                 var uooriya; var rajfos; var mop; var vilaSlNo=0;
                
-                
+                var tArray=[];// to store crop Code to Vila name 
 
 //--Start--L1(L2)-------------loop according to (crop array) named vila-----and add recomentation -----------------------------------------------------------------               
                 vila.forEach(element => { 
                    
+                   if (vilaSlNo >= 5) {
+                    return;}
                 switch(element){
-                       
+                        case "x":
+                            tArray.push("]-¨-¡-dn-");
+                        break;
+
                         case "r":
                           
                             vilaSlNo++; 
@@ -233,10 +240,11 @@ function checkFile(btnName){
                             else if(exData.K<=315)   mop=35;
                             else if(exData.K<=355)   mop=25;
                             else mop=20;
+                           tArray.push("s\\Ãv");
                            
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "s\\Ãv";
-                            ftr2.appendChild(tempTd);
+                          //  var tempTd = document.createElement('td');
+                           // tempTd.textContent = "s\\Ãv";
+                           // ftr2.appendChild(tempTd);
 
                             addPara("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//നെല്ല് 
                             addPara("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
@@ -245,7 +253,7 @@ function checkFile(btnName){
                             dA4Bak,"test","true");
                             
                             break;
-                            case"c"://തെങ്ങ്var
+                            case"c"://തെങ്ങ്
                             vilaSlNo++; 
 
                             if (exData.OC <= 0.16) uooriya = 960;
@@ -281,9 +289,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=400;
                             else mop=270;
 
-                           var tempTd = document.createElement('td');
-                            tempTd.textContent = "sX§v";
-                            ftr2.appendChild(tempTd);
+                           //var tempTd = document.createElement('td');
+                            //tempTd.textContent = "sX§v";
+                           // ftr2.appendChild(tempTd);
+                           tArray.push( "sX§v");
+                           
 
                             addPara("hnf: sX§v ",dA4Bak,"vila mousePointer","false");//തെങ്ങ്
                             addPara("Hmtcm sX§n\\pw 15 apXÂ 25 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯psImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh tNÀt¡ïXmWv. hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.",
@@ -330,9 +340,11 @@ function checkFile(btnName){
                             else  mop=55;
 
 
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "Ihp§v";
-                            ftr2.appendChild(tempTd);
+                            //var tempTd = document.createElement('td');
+                            //tempTd.textContent = "Ihp§v";
+                            //ftr2.appendChild(tempTd);
+                            tArray.push( "Ihp§v");
+                         
 
                             addPara("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//കവുങ്ങ് 
                             addPara("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
@@ -377,10 +389,11 @@ function checkFile(btnName){
                             else  mop=400;
 
 
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "PmXn";
-                            ftr2.appendChild(tempTd);
+                           // var tempTd = document.createElement('td');
+                           // tempTd.textContent = "PmXn";
+                           // ftr2.appendChild(tempTd);
 
+                             tArray.push("PmXn");
                            
                             addPara("hnf: PmXn ",dA4Bak,"vila mousePointer","false");//ജാതി
                             addPara("Hmtcm PmXn ac¯n\\pw hÀj¯nÂ Hcn¡Â 50 Intem{Kmw hoXw ]¨nehfw/ Imenhfw/It¼mÌv F¶nh tNÀ¯psImSp¡p¶Xv DNnXamWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm ac¯n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +"{Kmw hoXw s]m«mjv F¶nh hÀj¯nÂ Hcn¡Â tNÀ¡pI  ",
@@ -424,9 +437,10 @@ function checkFile(btnName){
                             else  mop=160;
 
 
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "hmg";
-                            ftr2.appendChild(tempTd);
+                          //  var tempTd = document.createElement('td');
+                           // tempTd.textContent = "hmg";
+                           // ftr2.appendChild(tempTd);
+                            tArray.push( "hmg");
 
                             addPara("hnf: hmg ",dA4Bak,"vila mousePointer","false");//വാഴ
                             addPara("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +" {Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
@@ -470,9 +484,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=90;
                             else  mop=60;
 
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "Ip-:ap-f-Iv";
-                            ftr2.appendChild(tempTd);
+                           // var tempTd = document.createElement('td');
+                          //  tempTd.textContent = "Ip-:ap-f-Iv";
+                           // ftr2.appendChild(tempTd);
+
+                            tArray.push( "Ip-:ap-f-Iv");
 
                             addPara("hnf: IpcpapfIv ",dA4Bak,"vila mousePointer","false");//കുരുമുളക് 
                             addPara("Hmtcm sNSn¡pw 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¡mw.  ]cntim[\\m ^ew A\\pkcn¨v IpcpapfIv sNSn H¶n\\v " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh Xpey XhWIfmbn sabvþPq¬, HmKÌvþsk]väw_À amk§fnÂ tNÀt¡ïXmWv.",
@@ -515,10 +531,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=180;
                             else  mop=120;
 
-                           var tempTd = document.createElement('td');
-                            tempTd.textContent = "t\\{´";
-                            ftr2.appendChild(tempTd);
-                            
+                          // var tempTd = document.createElement('td');
+                           // tempTd.textContent = "t\\{´";
+                           // ftr2.appendChild(tempTd);
+                            tArray.push(  "t\\{´");
+
                             addPara("hnf: t\\{´hmg ",dA4Bak,"vila mousePointer","false");//നേന്ത്ര 
                             addPara("hmg H¶n\\v 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcmhmg¡pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv, "+mop+ " {Kmw hoXw s]m«mjv F¶nh 6 XhWIfmbnþ\\«v 1, 2, 3, 4, 5 amk§Ä¡v tijhpwIpe h¶ DSt\\bpw tNÀt¡ïXmWv.",
                             dA4Bak,"test","true");
@@ -561,10 +578,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=46;
                             else  mop=31;
                             
-                           var tempTd = document.createElement('td');
-                            tempTd.textContent = "d-º-À-";
-                            ftr2.appendChild(tempTd);
+                           //var tempTd = document.createElement('td');
+                           // tempTd.textContent = "d-º-À-";
+                           // ftr2.appendChild(tempTd);
                             
+                            tArray.push( "d-º-À-");
                             
                             addPara("hnf: d-º-À-",dA4Bak,"vila mousePointer","false");//റബ്ബർ
                             addPara("Hcp sNSn¡v  " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " knwKnÄ kq¸Àt^mkvt^äpw, "+mop+ " {Kmw s]m«mjpw AS§p¶ an{inXw hÀj¯nÂ Hcp XhWbmtbm (G{]nÂþsabvamk¯nÂ) AsÃ¦nÂ c-ïp-  XhWIfmbn (G{]nÂþsabv, sk]väw_ÀþHtÎm_À amk¯nÂ)  tNÀ¯psImSp¡pI.",
@@ -608,11 +626,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=125;
                             else  mop=85;
                             
-                           var tempTd = document.createElement('td');
-                            tempTd.textContent = "-sImÅn-";
-                            ftr2.appendChild(tempTd);
+                           //var tempTd = document.createElement('td');
+                           // tempTd.textContent = "-sImÅn-";
+                           // ftr2.appendChild(tempTd);
                             
-                            
+                            tArray.push("-sImÅn-");
 
 
                             addPara("hnf: a-c-¨o-\\n- ",dA4Bak,"vila mousePointer","false");//കൊള്ളി 
@@ -657,11 +675,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=60;
                             else  mop=40;
                             
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "X¡mfn";
-                            ftr2.appendChild(tempTd);
+                          //  var tempTd = document.createElement('td');
+                           // tempTd.textContent = "X¡mfn";
+                           // ftr2.appendChild(tempTd);
                             
-                            
+                            if(!addedVeg.includes("tc")){tArray.push("X¡mfn")};
 
 
                             addPara("hnf: X¡mfn/apfIv/hgpX\\ ",dA4Bak,"vila mousePointer","false");//തക്കാളി,മുളക്,വഴുതന
@@ -708,12 +726,12 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=62;
                             else  mop=42;
                             
-                            var tempTd = document.createElement('td');
-                            tempTd.textContent = "-shï-";
-                            ftr2.appendChild(tempTd);
+                           // var tempTd = document.createElement('td');
+                          //  tempTd.textContent = "-shï-";
+                           // ftr2.appendChild(tempTd);
                             
                             
-
+                            if(!addedVeg.includes("v")){ tArray.push( "-shï-")   };
 
                             addPara("hnf: -shï-  ",dA4Bak,"vila mousePointer","false");//വെണ്ട
                             addPara("	Hcp skân\\v 48 Intem{Kmw F¶ tXmXnÂ Imenhfw/It¼mÌv/ ]¨nehfw F¶nhtNÀ¡p¶Xv \\ÃXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm skân\\pw " +uooriya+"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv, " +mop+ "{Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww. ]IpXn bqdnbbpw, apgph³ cmPvt^mkpw, apgph³ s]m«mjpw ASnhfambpw, _m¡n ]IpXn bqdnb \\«v Hcp amk¯n\\ptijhpw tNÀ¡mw.	",
@@ -759,11 +777,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=295;
                             else  mop=200;;
 
-                           var tempTd = document.createElement('td');
-                            tempTd.textContent = "shÅcn";
-                            ftr2.appendChild(tempTd);
+                         //  var tempTd = document.createElement('td');
+                          //  tempTd.textContent = "shÅcn";
+                          //  ftr2.appendChild(tempTd);
                             
-                            
+                          if(!addedVeg.includes("cu")){ tArray.push( "shÅcn");}
 
 
                             addPara("hnf: a¯³/shÅcn/]Shew/]mhÂ/tImhÂ/Ip¼fw ",dA4Bak,"vila mousePointer","false");//വെള്ളരിവർഗം
@@ -809,11 +827,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=20;
                             else  mop=15;;
 
-                            var tempTd = document.createElement('td');
-                             tempTd.textContent = "]bÀ";
-                             ftr2.appendChild(tempTd);
+                           // var tempTd = document.createElement('td');
+                            // tempTd.textContent = "]bÀ";
+                            // ftr2.appendChild(tempTd);
                              
-                             
+                            if(!addedVeg.includes("pr")){ tArray.push(  "]bÀ")}
 
 
                             addPara("hnf: ]bÀ ",dA4Bak,"vila mousePointer","false");//പയർ
@@ -858,11 +876,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=245;
                             else  mop=165;;
 
-                            var tempTd = document.createElement('td');
-                             tempTd.textContent = "Iq-À-¡-";
-                             ftr2.appendChild(tempTd);
+                          //  var tempTd = document.createElement('td');
+                            // tempTd.textContent = "Iq-À-¡-";
+                             //ftr2.appendChild(tempTd);
                              
-                             
+                             tArray.push( "Iq-À-¡-");
 
 
                             addPara("hnf: Iq-À-¡- ",dA4Bak,"vila mousePointer","false");//കൂർക്ക
@@ -909,11 +927,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=125;
                             else  mop=85;;
 
-                            var tempTd = document.createElement('td');
-                             tempTd.textContent = "Noc";
-                             ftr2.appendChild(tempTd);
+                            //var tempTd = document.createElement('td');
+                            // tempTd.textContent = "Noc";
+                            // ftr2.appendChild(tempTd);
                              
-                             
+                            if(!addedVeg.includes("ch")){ tArray.push( "Noc")}
 
 
                             addPara("hnf: Noc ",dA4Bak,"vila mousePointer","false");//ചീര
@@ -958,17 +976,18 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=120;
                             else  mop=80;;
 
-                            var tempTd = document.createElement('td');
-                             tempTd.textContent = "C©n";
-                             ftr2.appendChild(tempTd);
+                           // var tempTd = document.createElement('td');
+                            // tempTd.textContent = "C©n";
+                           //  ftr2.appendChild(tempTd);
                              
                              
-
+                             tArray.push( "C©n");
 
                             addPara("hnf: C©n ",dA4Bak,"vila mousePointer","false");//ഇഞ്ചി
                             addPara("	Hcp skân-\\v 120 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm skân-\\pw "+uooriya+ "{Kmw hoXw bqdnb, " +rajfos+"{Kmw hoXw knwKnÄ kq¸Àt^mkvt^äv,  " +mop+" {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw, ]IpXn s]m«mjpw ASnhfambpw ]IpXn bqdnb 2 amk¯n\\p tijhpw tNÀ¯psImSp¡pI.  _m¡n ]IpXn bqdnbbpw s]m«mjpw 4 amk¯n\\v tijhpw tNÀ¯psImSp¡pI.",
                             dA4Bak,"test","true");
                             break;
+                           
                             case"m"://മഞ്ഞൾ
                             vilaSlNo++; 
                             if (exData.OC <= 0.16) uooriya = 340;
@@ -1006,11 +1025,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=140;
                             else  mop=100;;
 
-                            var tempTd = document.createElement('td');
-                             tempTd.textContent = "a-ª-Ä";
-                             ftr2.appendChild(tempTd);
+                           // var tempTd = document.createElement('td');
+                           //  tempTd.textContent = "a-ª-Ä";
+                            // ftr2.appendChild(tempTd);
                              
-                             
+                             tArray.push( "a-ª-Ä");
 
 
                             addPara("hnf: a-ª-Ä- ",dA4Bak,"vila mousePointer","false");//മഞ്ഞൾ
@@ -1056,11 +1075,11 @@ function checkFile(btnName){
                             else if(exData.K<=355)   mop=370;
                             else  mop=250;;
 
-                            var tempTd = document.createElement('td');
-                             tempTd.textContent = "tN\\ ";
-                             ftr2.appendChild(tempTd);
+                          //  var tempTd = document.createElement('td');
+                           //  tempTd.textContent = "tN\\ ";
+                           //  ftr2.appendChild(tempTd);
                              
-                             
+                           if(!addedVeg.includes("e")){ tArray.push("tN\\ ")}
 
 
                             addPara("hnf: tN\\  ",dA4Bak,"vila mousePointer","false");//ചേന 
@@ -1077,10 +1096,20 @@ function checkFile(btnName){
             
             
             });
+
        
 //---End--L1(L2)----------------loop according to crop array named vila-------------------------------------------------------------              
-         
-        
+
+
+while (tArray.length < 5) {
+    tArray.push("-");
+}
+
+const reportArray=[i,exData.farmer,exData.hName,exData.post,exData.pancha,exData.jilla,exData.survey,exData.gArea,exData.sCode,exData.gps]// creating arry to pass to create report table  
+const passArray= readOption(reportArray,tArray);       // it filter the reoprt array according to checkbox checked
+var ftr2 = createFinalTable(passArray,ftr); //creating table using passArray data
+
+
         var slNo=0;i
         var unit="";
         var falam="";
@@ -1227,8 +1256,10 @@ function checkFile(btnName){
             if(btnName=="list"){divContainer.appendChild(divFinal);
                 
                
-            var endDiv=createDiv("endDiv");
-            endDiv.textContent="End";
+           var endDiv=createDiv(endDiv);
+         
+
+           endDiv.className="endDiv";
             divContainer.appendChild(endDiv)
             fPannel.style.opacity=1;
             
@@ -1305,6 +1336,7 @@ function gRefresh(){
         element.parentNode.removeChild(element); });
         printButten.disabled = true;
         refreshButten.disabled = true;
+        fPannel.style.opacity=0;
 
 }
 
@@ -1314,23 +1346,26 @@ function createDiv(className) {
     return div;
   }
  
-  function createFinalTable(data, tr) {
-   
-    data.forEach(cellData => {
-        const ftd = document.createElement('td');
+  function createFinalTable(arrayName) {
+    const tr = document.createElement('tr');
 
-       
-        ftd.textContent = cellData;
-        
-        tr.addEventListener('click', function() { tr.classList.toggle('highlighted') });
-       
-        tr.appendChild(ftd);
-        
-       
+    tr.addEventListener('click', function() { // Add event listener to each td instead of tr
+        tr.classList.toggle('highlighted'); 
     });
 
-    return tr; // If you need to return the modified tr element
+    arrayName.forEach(cellData => {
+        const ftd = document.createElement('td');
+        ftd.textContent = cellData;
+
+        
+        
+
+        tr.appendChild(ftd);
+    });
+
+    return tr; // Return the modified tr element with td elements appended
 }
+
 slider.addEventListener('input', () => {
     const conclutionA4 = document.querySelector('.conclutionA4');
     const tableCells = conclutionA4.querySelectorAll('td');
@@ -1339,3 +1374,50 @@ slider.addEventListener('input', () => {
         cell.style.fontSize = fontSize;
     });
 });
+function viewDropDown(){
+
+  
+
+    var menu = document.getElementById('menu');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
+  // Close the menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropdown')) {
+        var dropdowns = document.getElementsByClassName("dropMenu");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.style.display === 'block') {
+                openDropdown.style.display = 'none';
+            }
+        }
+    }
+}
+
+
+function readOption(recArray,vtArray) {
+
+
+   
+
+    var checkboxes = document.querySelectorAll('.cBox');
+    var passArray = [];
+    
+    for (var i = 0; i < checkboxes.length; i++) {         
+        if (checkboxes[i].checked) {
+       if(i!=10) {passArray.push(recArray[i]);}
+       
+       else { passArray=passArray.concat(vtArray) }
+   
+    
+      
+    
+    }
+    }
+    
+    return passArray;
+}
