@@ -96,7 +96,7 @@ font-size: 13px;
   justify-content: space-around;
   position: sticky;
   top:50px;
-  z-index: 3;
+  z-index: 2;
 }
 .printBDiv{
   width:90mm;
@@ -138,13 +138,13 @@ display:flex;
  
   page-break-before: always;
   margin:auto;
-  z-index: 2;
+  z-index: 1;
  }
 
  .a4{
   background-image: url(frnd.jpg);
   }
-  .conclutionA4{
+  .conclutionA4, .mal{
 
   
     font-family: karthika, sans-serif;  
@@ -202,7 +202,7 @@ table, th, td {
   border-collapse: collapse;
  text-align: center;
 }
-table{
+.resultTable{
 margin-left: 25px;
 
 }
@@ -265,7 +265,7 @@ color:#814e37
 
 }
 
-button:hover,img:hover,label:hover {
+.gZoom:hover,img:hover,label:hover {
 
 
 background-color:rgb(208, 255, 0);
@@ -274,6 +274,18 @@ cursor: pointer;
 
 transform: scale(1.35);
 transition-duration: 0.3s;
+}
+button:hover{
+  background-color:rgb(208, 255, 0);
+  cursor: pointer;
+
+}
+
+.dropdown:hover{
+
+  cursor: pointer;
+color:#3d2803;
+
 }
 
 img:hover{
@@ -311,16 +323,18 @@ font-size:16px;
 
 }
 .conclutionA4{
-  width: fit-content;
-  margin:auto;
-padding:2mm;
+
+
+margin:20px auto;
+
+width: fit-content;
 
 }
 
 .conclutionA4 td{
   text-align: left;
   height:.4cm;
-  font-size:39px;
+  font-size:20px;
   cursor: pointer;
   }
 
@@ -336,20 +350,15 @@ padding:2mm;
   background-color: rgba(10, 231, 10, 0.233);
 
 }
-.endDiv{
-
-width:25%;
-height:5px;
-margin: auto;
-background-color: #bc8b49;
-text-align: center;
-color: white;
-font-size:small;
-
-
-
+.endDiv {
+  width:225px; /* Set the width to 50% of the container */
+  border: 0;
+  height: 50px;
+ 
+  background-image: url("end.jpg");
+  background-size: 100% 100%;
+  margin: 20px auto; /* Center the horizontal line */
 }
-
 
 
 @media print {
@@ -357,24 +366,14 @@ font-size:small;
   .pageNo { display: none; }
   .endDiv{ display:none;}
   #fControl{ display: none;}
-  .conclutionA4 table{border: none;}
+ 
    
   .conclutionA4 td{
-   border: none;
     text-align: left;
     height:1mm;
     font-size:15px;
-    }
+    }}
   
-}
-
-/*.slider {
-  writing-mode: bt-lr; /* Vertical slider 
-  -webkit-appearance: slider-vertical;
-  width: 5px;
-  height: 200px;
-  
-} */
 .fControl{
   position: fixed;
 top:94%;
@@ -383,7 +382,6 @@ top:94%;
 display: flex;
 justify-content: center;
 }
-
 
 .slider {
   -webkit-appearance: none;  /* Override default CSS styles */
@@ -409,6 +407,34 @@ justify-content: center;
   border-radius: 5px;
   background: #04AA6D; /* Green background */
   cursor: pointer; /* Cursor on hover */
+}
+.dropMenu{
+ display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 116px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+.dropMenu div {
+  color: black;
+  padding: 5px 9px;
+  text-decoration: none;
+  display: block;
+}
+.dropMenu div:hover {
+  cursor: pointer;
+  background-color:#f5e5b1;
+}
+
+#dMenuDiv{
+  height:19px;
+
+padding-left: 28px;
+}
+#dMenuDiv:hover{
+
+  background-color: #c49b52;
 }
 
 /* Last edited 11/Juy/24 */
