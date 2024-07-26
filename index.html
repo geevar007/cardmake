@@ -21,10 +21,41 @@
    
     <input type="file" id="excel-file" accept=".xlsx, .xls" onchange="checkFile()"> 
 </div>
-<div >  <button id="createB" onclick="checkFile('cards')" title="Generate Cards"><i class="fa fa-cogs" aria-hidden="true"></i> Gen: Cards</button></div>
-<div >  <button id="listB" onclick="checkFile('list')"title="Farmer list"><i class="fa fa-address-card-o" aria-hidden="true"></i></i> List</button></div>
+<div >  <button id="createB" class="gZoom"onclick="checkFile('cards')" title="Generate Cards"><i class="fa fa-cogs" aria-hidden="true"></i> Gen: Cards</button></div>
+
+<div > <button id="listB" class="dropdown" onclick="viewDropDown()"title="Report"><i class="fa fa-address-card-o dropdown" aria-hidden="true"> Report</i> </button> 
+
+    <div class="dropMenu " id="menu">
 
 
+        
+            <div class="mal dropdown"> <input type="checkbox" class="dropdown cBox " value=0 > {I-.\w-:</div>
+       <div class="mal dropdown"> <input type="checkbox" class="dropdown cBox " value=1 >t]cv </div>
+        <div class="mal dropdown"><input type="checkbox" class="dropdown cBox mal" value=2 >ho-Sv</div> 
+        <div class="mal dropdown"><input type="checkbox" class="dropdown cBox mal" value=3>t]mkväv</div>
+        <div class="mal dropdown"> <input type="checkbox" class="dropdown cBox mal" value=exData.hName >]-©m-b-¯v</div>
+        <div class="mal dropdown"> <input type="checkbox" class="dropdown cBox mal" value=exData.hName>Pn-Ã-</div>
+        <div class="mal dropdown"> <input type="checkbox" class="dropdown cBox mal" value=4 >kÀth</div>
+        <div class=" dropdown"> <input type="checkbox" class="dropdown cBox mal" value=0 >Area</div>
+        <div class="mal dropdown"> <input type="checkbox" class="dropdown cBox mal" value=0 >km-¼n-Ä- -tImUv </div>
+        <div class=" dropdown"> <input type="checkbox" class="dropdown cBox mal" value=0 >GPS </div>
+        <div class="mal dropdown"><input type="checkbox" class="dropdown cBox mal" value=exData.hName >hnf</div>
+        
+       
+         
+        
+       
+        <div onclick="checkFile('list')" id="dMenuDiv">  Generate</div>
+        
+
+    </div>
+
+
+
+
+
+
+</div>
 </div>
 <div class="noPrint toolsDiv" id="numberIn">
    <div>
@@ -38,7 +69,7 @@
 
        
         <div> <a href="https://geevar007.github.io/cardmaker/Template.xlsx" download>
-            <button id="dwldButton" title="Download Template"><i class="fa fa-download" aria-hidden="true"></i>  Template</button>
+            <button id="dwldButton" class="gZoom" title="Download Template"><i class="fa fa-download" aria-hidden="true"></i>  Template</button>
         </a></div>
        
 
@@ -52,14 +83,15 @@
 
 
 </div>
+
 <div class="noPrint printBDiv"id="printBDiv"> 
     <img   id="refreshB" src="https://geevar007.github.io/glog/switch.png" alt="Reload" style="width:42px;height:42px" title="Refresh" onClick = window.location.reload();>
     <img id="printB" src="https://geevar007.github.io/glog/print.png" alt="Print" style="width: 42px;height:42px" title="Print"  onClick="window.print()">
-    <p class="mousePointer"style = "font-size:16px;color: rgb(26, 23, 1);margin-top: 8px ">Total Cards: <span id="totalCards" style = "font-size:21px">-</span></p>
+    <p class="mousePointer"style = "font-size:16px;color: rgb(26, 23, 1);margin-top: 8px ">Cards: <span id="totalCards" style = "font-size:21px">-</span></p>
 </div>
 <div class="fControl" id="fControl">
 
-    <input type="range" id="slider" class="slider" min="15" max="50" value="39" title="Zoom List"/>
+    <input type="range" id="slider" class="slider"min="12" max="50" value="20" />
 
 
 
