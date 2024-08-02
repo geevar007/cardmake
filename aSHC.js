@@ -16,7 +16,8 @@ const soilContents  =
 const exHead = ["jilla","pancha","post","sCode","farmer","hName","survey","gArea","gps",
                 "ph","Ec","OC","P","K","Ca","Mg","Sa","Fe","Mn","Zn","Cu","B","c1","c2","c3","c4","c5"];
                 const slider = document.getElementById('slider');    
-                
+  
+                    const veiwFontSize = document.getElementById("sizeDisplay");
                     const footDiv= document.getElementById("printBDiv");
                     const fPannel=document.getElementById("fControl");
                     const printButten = document.getElementById("printB");
@@ -171,17 +172,17 @@ function checkFile(btnName){
                 if (exData.ph<= 6.5) {
         ph = phValues[parseFloat(exData.ph).toFixed(1)] || 3375;
        
-        addPara("• ]pfnckw ImWp¶XvsImïv skân\\v "+ph+" {Kmw hoXw Ip½mbw tNÀt¡ïXmWv. CXn\\p cïv BgvN¡vtijw am{Xw cmkhf{]tbmKw \\S¯pI.",dA4Bak, "commonRec mousePointer", "true");}//കുമ്മായം 
-         if (exData.Cu<1){addPara("• sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp G¡dn\\v 800 {Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
-         if (exData.Mg<120){addPara("• aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp G¡dn\\v 32 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")}
-         if (exData.B<.5){addPara("• t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp G¡dn\\v 4 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","true")}
-         if ( exData.Sa<5){addPara("• kÄ^À A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn  Hcp G¡dn\\v kÄ^À s]mSn 10 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI",dA4Bak,"test","true")};
+        addPara("• ]pfnckw ImWp¶XvsImïv skân\\v "+ph+" {Kmw hoXw Ip½mbw tNÀt¡ïXmWv. CXn\\p cïv BgvN¡vtijw am{Xw cmkhf{]tbmKw \\S¯pI.",dA4Bak, "commonRec mousePointer", "false");}//കുമ്മായം 
+         if (exData.Cu<1){addPara("• sN¼nsâ Ipdhv \\nI¯m³ tIm¸À kÄt^äv Hcp G¡dn\\v 800 {Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","false")}
+         if (exData.Mg<120){addPara("• aáojyw A]cym]vXambn ImWp¶p. CXp ]cnlcn¡p¶Xn\\mbn aáojyw kÂt^äv Hcp G¡dn\\v 32 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","false")}
+         if (exData.B<.5){addPara("• t_mtdm¬ A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn t_mdmIvkv Hcp G¡dn\\v 4 Intem{Kmw F¶ tXmXnÂ a®nÂtNÀ¡pI.",dA4Bak,"test","false")}
+         if ( exData.Sa<5){addPara("• kÄ^À A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn  Hcp G¡dn\\v kÄ^À s]mSn 10 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI",dA4Bak,"test","false")};
         
-         if (  exData.Zn<1){addPara("• kn¦v A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn kn¦v kÂt^äv Hcp G¡dn\\v 8 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","true")};
+         if (  exData.Zn<1){addPara("• kn¦v A]cym]vXambn ImWp¶p. CXv ]cnlcn¡p¶Xn\\mbn kn¦v kÂt^äv Hcp G¡dn\\v 8 Intem{Kmw F¶ tXmXnÂ a®nÂ tNÀ¡pI.",dA4Bak,"test","false")};
         
                 const vila=[exData.c1,exData.c2,exData.c3,exData.c4,exData.c5];
                
-                let dVeg = ["tc", "pr", "v","ch","cu","e"];//  default vegitable
+                let dVeg = ["tc", "v","cu" ,"ch","pr","e"];//  default vegitable
                
                let addedVeg=[];//for adding vegtable 
                 //const regex = /\d+/g; // Regular expression to match digits
@@ -248,9 +249,9 @@ function checkFile(btnName){
 
                             addPara("hnf: s\\Ãv",dA4Bak,"vila mousePointer","false");//നെല്ല് 
                             addPara("A¾X Ipdbv¡m\\pw ImÂky¯nsâ A]cym]vXX \\nI¯m\\pw slIvSdn\\v 350 In.{Kmw. Ip½mbw \\nesamcp¡p¶ kab¯v tNÀ¯vsImSpt¡ïXmWv. \\«v Hcpamk¯n\\ptijw slIvSdn\\v 250 In.{Kmw. Ip½mbw hoïpw tNÀ¯vsImSp¡Ww.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             addPara(" -a[yIme aq¸pÅ C\\§Ä¡v Hcp hnfbv¡v slIvSdn\\v " + uooriya +" In{Kmw bqdnb, "+rajfos+ " In{Kmw cmPvt^mkv, "+ mop +"In{Kmw ayqdntbäv Hm^v s]m«mjv F¶nh \\ÂImw. s]mSnhnXbmsW¦nÂ taÂ]dª Afhnsâ aq¶nsemcp`mKw hoXw bqdnb, hnX¨v HcmgvN¡v tijhpw, Nn\\¸v s]m«p¶ kab¯pw, IXncphcm³ XpS§p¶ kab¯pw \\ÂIWw. apgph³ `mKw cmPvt^mkpw \\nesamcp¡p¶ kab¯v ASnhfambn \\ÂImw. Ac`mKw hoXw s]m«mjv hnX¨v HcmgvNbv¡v tijhpw, IXncphcp¶ kab¯pw tNÀ¯vsImSp¡mw. ]dn¨p\\SoemsW¦nÂ Ac`mKw bqdnbbpw Ac`mKw s]m«mjpw apgph³ `mKw cmPvt^mkpw ASnhfambpw _m¡n`mKw bqdnbbpw s]m«mjpw IXncv hcp¶Xn\\v HcmgvN ap³]mbpw \\ÂImw.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             
                             break;
                             case"c"://തെങ്ങ്
@@ -297,7 +298,7 @@ function checkFile(btnName){
 
                             addPara("hnf: sX§v ",dA4Bak,"vila mousePointer","false");//തെങ്ങ്
                             addPara("Hmtcm sX§n\\pw 15 apXÂ 25 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¯psImSp¡p¶Xv A\ptbmPyamWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm sX§n\\pw " + uooriya +" {Kmw hoXw bqdnb,  "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh tNÀt¡ïXmWv. hf§fpsS aq¶ntemcp `mKw G{]nÂþsabv amk§fnepw, _m¡n sk]väw_ÀþHIvtSm_À amk§fnepw tNÀ¡mw.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
 
                            
                             break;
@@ -348,7 +349,7 @@ function checkFile(btnName){
 
                             addPara("hnf: Ihp§v ",dA4Bak,"vila mousePointer","false");//കവുങ്ങ് 
                             addPara("Hmtcm Ihp§n\\pw 12 Intem{Kmw hsc ]¨nehfw/Imenhfw/It¼mÌv F¶nh sk]väw_ÀþHtÎm_À amk§fnÂ tNÀ¯psImSp¡pI. ]cntim[\\m ^ew A\\pkcn¨v Hmtcm Ihp§n\\pw " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ "{Kmw hoXw cmPvt^mkv,  "+ mop +" {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn sk]väw_À þ HtÎm_À amk§fnepw amk§fnepw amÀ¨vþG{]nÂ amk§fnepw tNÀ¯psImSp¡pI.", 
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
         
                             case"n":
@@ -444,7 +445,7 @@ function checkFile(btnName){
 
                             addPara("hnf: hmg ",dA4Bak,"vila mousePointer","false");//വാഴ
                             addPara("hmg H¶n\\v  10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh \\Spt¼mÄ IpgnbnÂ tNÀt¡ïXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm hmg¡pw " + uooriya +" {Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh 2 XhWIfmbn \\«v 2,4 amk§Ä¡v tijw tNÀ¡mhp¶XmWv.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                            
                             break;
                          
@@ -492,7 +493,7 @@ function checkFile(btnName){
 
                             addPara("hnf: IpcpapfIv ",dA4Bak,"vila mousePointer","false");//കുരുമുളക് 
                             addPara("Hmtcm sNSn¡pw 10 Intem{Kmw hoXw ]¨nehfw/Imenhfw/It¼mÌv F¶nh Pq¬þPqembv amk§fnÂ tNÀ¡mw.  ]cntim[\\m ^ew A\\pkcn¨v IpcpapfIv sNSn H¶n\\v " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv,  "+mop+ " {Kmw hoXw s]m«mjv F¶nh Xpey XhWIfmbn sabvþPq¬, HmKÌvþsk]väw_À amk§fnÂ tNÀt¡ïXmWv.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                            
                             break;
                             case"bb":
@@ -586,7 +587,7 @@ function checkFile(btnName){
                             
                             addPara("hnf: d-º-À-",dA4Bak,"vila mousePointer","false");//റബ്ബർ
                             addPara("Hcp sNSn¡v  " + uooriya +" {Kmw hoXw bqdnb, "+rajfos+ " knwKnÄ kq¸Àt^mkvt^äpw, "+mop+ " {Kmw s]m«mjpw AS§p¶ an{inXw hÀj¯nÂ Hcp XhWbmtbm (G{]nÂþsabvamk¯nÂ) AsÃ¦nÂ c-ïp-  XhWIfmbn (G{]nÂþsabv, sk]väw_ÀþHtÎm_À amk¯nÂ)  tNÀ¯psImSp¡pI.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
                             
                             case"t"://കൊള്ളി 
@@ -635,7 +636,7 @@ function checkFile(btnName){
 
                             addPara("hnf: a-c-¨o-\\n- ",dA4Bak,"vila mousePointer","false");//കൊള്ളി 
                             addPara("Hmtcm skân\\pw 50 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI.  ]cntim[\\ ^ew A\\pkcn¨v Hmtcm skân\\pw "+ uooriya+" {Kmw hoXw bqdnb, "+  rajfos+" {Kmw hoXw knwKnÄ kq¸À t^mkvt^ävv, "+ mop+" {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww.  aq¶nÂ Hcp `mKw bqdnbbpw, apgph³ knwKnÄ kq¸Àt^mkvt^äpw, aq¶nÂ Hcp `mKw s]m«mjpw ASnhfambpw, aq¶nÂ Hcp `mKw bqdnbbpw aq¶nÂ Hcp `mKw s]m«mjpw 2 amk¯n\\p tijhpw, aq¶v amk¯n\\p tijhpw tNÀ¯psImSp¡pI.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
                             case"tc"://തക്കാളി,മുളക്,വഴുതന
@@ -684,7 +685,7 @@ function checkFile(btnName){
 
                             addPara("hnf: X¡mfn/apfIv/hgpX\\ ",dA4Bak,"vila mousePointer","false");//തക്കാളി,മുളക്,വഴുതന
                             addPara("	Hcp skân\\v 80 Intem{Kmw F¶ tXmXnÂ It¼mÌv/]¨nehfw/ Imenhfw F¶nh tNÀ¡pI. ]cntim[\\^ew A\\pkcn¨v Hmtcm skân\\pw "+ uooriya+" {Kmw hoXw bqdnb, "+rajfos+ " {Kmw hoXw cmPvt^mkv, "+mop+"{Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww. ]IpXn bqdnbbpw, ]IpXn s]m«mjpw, apgph³ cmPvt^mkpw ASnhfambpw, tijn¡p¶ s]m«mjpw, ImÂ`mKw bqdnbbpw \\«v 20þ30 Znhk§Ä¡ptijhpw, _m¡nbpÅ bqdnb \\«v 2 amk§Ä¡v tijhpw tNÀ¡pI.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
 
@@ -735,7 +736,7 @@ function checkFile(btnName){
 
                             addPara("hnf: -shï-  ",dA4Bak,"vila mousePointer","false");//വെണ്ട
                             addPara("	Hcp skân\\v 48 Intem{Kmw F¶ tXmXnÂ Imenhfw/It¼mÌv/ ]¨nehfw F¶nhtNÀ¡p¶Xv \\ÃXmWv. ]cntim[\\^ew A\\pkcn¨v, Hmtcm skân\\pw " +uooriya+"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv, " +mop+ "{Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww. ]IpXn bqdnbbpw, apgph³ cmPvt^mkpw, apgph³ s]m«mjpw ASnhfambpw, _m¡n ]IpXn bqdnb \\«v Hcp amk¯n\\ptijhpw tNÀ¡mw.	",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
 
@@ -786,7 +787,7 @@ function checkFile(btnName){
 
                             addPara("hnf: a¯³/shÅcn/]Shew/]mhÂ/tImhÂ/Ip¼fw ",dA4Bak,"vila mousePointer","false");//വെള്ളരിവർഗം
                             addPara("	Hmtcm skân\\pw 80 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI. ]cntim[\\^ew A\\pkcn¨v, Hmtcm skân\\pw "+ uooriya+"{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv, " +mop+ " {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww. ]IpXn bqdnbbpw, apgph³ cmPvt^mkpw, apgph³ s]m«mjpw ASnhfambpw, _m¡n ]IpXn bqdnb 2 BgvNs¯ CSthfIfnÂ ]e XhWIfmbpw tNÀ¯psImSp¡pI.	",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
 
@@ -836,7 +837,7 @@ function checkFile(btnName){
 
                             addPara("hnf: ]bÀ ",dA4Bak,"vila mousePointer","false");//പയർ
                             addPara("	Hmtcm skân\\pw 80 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI. ]cntim[\\ ^ew A\\pkcn¨v Hmtcm skân\\pw "+ uooriya+" {Kmw hoXw bqdnb, " +rajfos+"  {Kmw hoXw cmPvt^mkv, " +mop+ "{Kmw hoXw s]m«mjv F¶nh tNÀ¯psImSp¡pI. ]IpXn bqdnbbpw, apgph³ cmPvt^mkpw, apgph³ s]m«mjpw ASnhfambpw, _m¡n ]IpXn bqdnb \\«v 15þ20 Znhk§Ä¡ptijhpw tNÀ¯psImSp¡mw.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
                             case"ku"://കൂർക്ക
@@ -885,7 +886,7 @@ function checkFile(btnName){
 
                             addPara("hnf: Iq-À-¡- ",dA4Bak,"vila mousePointer","false");//കൂർക്ക
                             addPara("	]cntim[\\m ^ew A\\pkcn¨v Hmtcm skân\\pw "+uooriya+ "{Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw knwKnÄ kq¸À t^mkvt^äv, " +mop+" {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww.  aq¶nÂ Hcp `mKw bqdnbbpw, aq¶nÂ Hcp `mKw s]m«mjpw apgph³ knwKnÄ kq¸À t^mkvt^äqw ASnhfambpw, _m¡n s]m«mjpw bqdnbbpw 45 Znhk§Ä¡v tijhpw tNÀ¯v sImSp¡pI.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
 
@@ -985,7 +986,7 @@ function checkFile(btnName){
 
                             addPara("hnf: C©n ",dA4Bak,"vila mousePointer","false");//ഇഞ്ചി
                             addPara("	Hcp skân-\\v 120 Intem{Kmw hoXw Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡pI.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm skân-\\pw "+uooriya+ "{Kmw hoXw bqdnb, " +rajfos+"{Kmw hoXw knwKnÄ kq¸Àt^mkvt^äv,  " +mop+" {Kmw hoXw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw, ]IpXn s]m«mjpw ASnhfambpw ]IpXn bqdnb 2 amk¯n\\p tijhpw tNÀ¯psImSp¡pI.  _m¡n ]IpXn bqdnbbpw s]m«mjpw 4 amk¯n\\v tijhpw tNÀ¯psImSp¡pI.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
                            
                             case"m"://മഞ്ഞൾ
@@ -1034,7 +1035,7 @@ function checkFile(btnName){
 
                             addPara("hnf: a-ª-Ä- ",dA4Bak,"vila mousePointer","false");//മഞ്ഞൾ
                             addPara("skân-\\v 160 Intem{KmwhoXw ]¨nehfw/It¼mÌv/NmWIs¸mSn F¶nh tNÀ¡pI.  a®v ]cntim[\\m^ew A\\pkcn¨v Hcp skân-\\v "+uooriya+ "{Kmw bqdnb,  " +rajfos+"{Kmw knwKnÄkq¸À t^mkvt^äv,  " +mop+" {Kmw s]m«mjv F¶nh tNÀ¡Ww.  apgph³ knwKnÄ kq¸À t^mkvt^äpw ]IpXn s]m«mjpw ASnhfambn tNÀ¡pI.  aq¶nÂ c­v `mKw bqdnb 30 Znhk¯n\\v tijw tNÀ¡pI.  _m¡nbpÅ s]m«mjpw aq¶nÂ Hcp `mKw bqdnbbpw 60 Znhk¯n\\v tijw tNÀ¡mhp¶XmWv.",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
 
@@ -1084,7 +1085,7 @@ function checkFile(btnName){
 
                             addPara("hnf: tN\\  ",dA4Bak,"vila mousePointer","false");//ചേന 
                             addPara("	HcpIp-gn-bv¡v 2 Intem{Kmw  F¶ AfhnÂ Imenhfw/It¼mÌv/]¨nehfw F¶nh tNÀ¡Ww.  ]cntim[\\m ^ew A\\pkcn¨v Hmtcm skân\\pw  "+uooriya+ " {Kmw hoXw bqdnb, " +rajfos+" {Kmw hoXw cmPvt^mkv,  " +mop+" {Kmw  s]m«mjv F¶nhbpw -tNÀt¡ï-Xm-Wv .  ]IpXn bqdnbbpw, ]IpXn s]m«mjpw, apgph³ cmPvt^mkpw \\«v H¶camk¯n\\p tijhpw _m¡n ]IpXn bqdnbbpw ]IpXn s]m«mjpw BZy hf{]tbmKw Ignªp Hcpamk¯n\\p tijhpw tNÀ¯psImSp¡pI. ",
-                            dA4Bak,"test","true");
+                            dA4Bak,"test","false");
                             break;
 
 
@@ -1251,9 +1252,12 @@ var ftr2 = createFinalTable(passArray,ftr); //creating table using passArray dat
                        tableFinal.appendChild(ftr2)
             } 
 //--L1 End ------------------------End--loop depend on farmer number or selected card number End-----------------------------------------------   
-            divFinal.appendChild(tableFinal)
+           
             
-            if(btnName=="list"){divContainer.appendChild(divFinal);
+            if(btnName=="list"){
+                addPara("-slUn-Mv  C-hnsS  F-Un-äv  -sN¿mw- ",divFinal,"finalHeading","true");
+                divFinal.appendChild(tableFinal);
+                divContainer.appendChild(divFinal);
                 
                
            var endDiv=createDiv(endDiv);
@@ -1262,8 +1266,8 @@ var ftr2 = createFinalTable(passArray,ftr); //creating table using passArray dat
            endDiv.className="endDiv";
             divContainer.appendChild(endDiv)
             fPannel.style.opacity=1;
-            
-            
+            veiwFontSize.innerHTML="20px"
+            slider.value="20";
             }
             
             
@@ -1319,7 +1323,7 @@ for (let i = 0; i <=5;  i++) {
 
 
 function  addPara(text, div, clsName,editSatus) {
-    editSatus="false";
+    
     var p = document.createElement("p");
   
     p.className = clsName;
@@ -1369,9 +1373,19 @@ function createDiv(className) {
 slider.addEventListener('input', () => {
     const conclutionA4 = document.querySelector('.conclutionA4');
     const tableCells = conclutionA4.querySelectorAll('td');
-    const fontSize = slider.value + 'px';
+   const reportHeding=conclutionA4.querySelector('.finalHeading');
+  
+
+   const fontSize = slider.value;
+const newFontsize=Number(fontSize)+7;
+
+
+    
+  
+    veiwFontSize.innerHTML=fontSize;
+   reportHeding.style.fontSize = newFontsize+ 'px';
     tableCells.forEach(cell => {
-        cell.style.fontSize = fontSize;
+        cell.style.fontSize = fontSize+ 'px';
     });
 });
 function viewDropDown(){
