@@ -377,7 +377,7 @@ width: fit-content;
 .fControl{
   position: fixed;
 top:94%;
-  right: 13%;
+  right: 11%;
 
 display: flex;
 justify-content: center;
@@ -436,5 +436,16 @@ padding-left: 28px;
 
   background-color: #c49b52;
 }
+#sizeDisplay{
 
+  font-size: smaller;
+}
+.finalHeading {
+
+
+font-size:27px;
+
+text-decoration:underline;
+text-align:center;
+}
 /* Last edited 11/Juy/24 */
