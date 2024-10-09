@@ -103,7 +103,7 @@ function checkFile(btnName){
                             { className: "slNo", textContent: "{Ia  \\\w" },
                             { className: "blank", textContent: "" },
                             { className: "unit", textContent: "bqWnäv" },
-                            { className: "falam", textContent: "]cntim[\ ^ew" },
+                            { className: "falam", textContent: "]cntim[\\ ^ew" },
                             { className: "nilavaram", textContent: "\\nehmcw" },
                             { className: "manadan", textContent: "am\\ZWvUw" }];
         
